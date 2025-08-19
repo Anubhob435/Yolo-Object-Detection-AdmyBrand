@@ -5,6 +5,7 @@ import uuid
 import ssl
 import weakref
 import time
+import socket
 from pathlib import Path
 from aiortc import RTCPeerConnection, RTCSessionDescription, VideoStreamTrack
 from aiortc.contrib.media import MediaRelay
@@ -14,8 +15,48 @@ import numpy as np
 from ultralytics import YOLO
 from .metrics import get_metrics_collector
 
+try:
+    import qrcode
+    QR_AVAILABLE = True
+except ImportError:
+    QR_AVAILABLE = False
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
+
+def get_local_ip():
+    """Get the local IP address of the machine."""
+    try:
+        # Connect to a remote address to determine local IP
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+            s.connect(("8.8.8.8", 80))
+            return s.getsockname()[0]
+    except Exception:
+        return "localhost"
+
+def generate_qr_code(url):
+    """Generate and display a QR code for the given URL."""
+    if not QR_AVAILABLE:
+        print("📱 QR Code generation not available (qrcode package not installed)")
+        print(f"   Mobile URL: {url}")
+        return
+    
+    try:
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(url)
+        qr.make(fit=True)
+        
+        print("📱 Scan this QR code with your mobile phone:")
+        qr.print_ascii(invert=True)
+        print(f"   Or visit directly: {url}")
+    except Exception as e:
+        print(f"📱 QR Code generation failed: {e}")
+        print(f"   Mobile URL: {url}")
 
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.parent.parent
@@ -355,25 +396,46 @@ if __name__ == "__main__":
     key_path = PROJECT_ROOT / "certs" / "key.pem"
     
     if cert_path.exists() and key_path.exists():
+        # Get local IP address for mobile access
+        local_ip = get_local_ip()
+        
         # Run with HTTPS
         ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_context.load_cert_chain(cert_path, key_path)
         print("🔒 Starting HTTPS server for mobile camera access...")
         print("🌐 HTTPS URLs:")
-        print("   📱 Mobile: https://192.168.0.89:8443")
+        print(f"   📱 Mobile: https://{local_ip}:8443")
         print("   🖥️  Desktop: https://localhost:8443")
         print("   ⚡ Real-time: https://localhost:8443/realtime")
         print("   📊 Metrics Dashboard: https://localhost:8443/metrics/dashboard")
         print("   🔧 Debug: https://localhost:8443/debug")
         print("⚠️  Accept the security warning in your browser")
+        print()
+        
+        # Generate QR code for mobile realtime demo
+        mobile_realtime_url = f"https://{local_ip}:8443/realtime"
+        generate_qr_code(mobile_realtime_url)
+        print()
+        
         web.run_app(app, host="0.0.0.0", port=8443, ssl_context=ssl_context)
     else:
+        # Get local IP address for mobile access
+        local_ip = get_local_ip()
+        
         # Fallback to HTTP
         print("🌐 Starting HTTP server...")
         print("🌐 HTTP URLs:")
+        print(f"   📱 Mobile: http://{local_ip}:8080")
         print("   🖥️  Desktop: http://localhost:8080")
         print("   ⚡ Real-time: http://localhost:8080/realtime")
         print("   📊 Metrics Dashboard: http://localhost:8080/metrics/dashboard")
         print("   🔧 Debug: http://localhost:8080/debug")
         print("📱 Mobile browsers may not allow camera access over HTTP")
+        print()
+        
+        # Generate QR code for mobile realtime demo
+        mobile_realtime_url = f"http://{local_ip}:8080/realtime"
+        generate_qr_code(mobile_realtime_url)
+        print()
+        
         web.run_app(app, host="0.0.0.0", port=8080)
