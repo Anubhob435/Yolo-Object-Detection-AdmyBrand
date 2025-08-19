@@ -118,8 +118,11 @@ class ObjectDetectionTrack(VideoStreamTrack):
             return frame
 
 async def index(request):
-    content = open(WEB_DIR / "templates" / "index.html", "r").read()
-    return web.Response(content_type="text/html", text=content)
+    """Redirect root URL to metrics dashboard."""
+    return web.Response(
+        status=302,
+        headers={'Location': '/metrics/dashboard'}
+    )
 
 async def javascript(request):
     content = open(WEB_DIR / "static" / "js" / "client_server_inference.js", "r", encoding='utf-8').read()
