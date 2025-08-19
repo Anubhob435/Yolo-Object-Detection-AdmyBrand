@@ -164,13 +164,6 @@ async def realtime_demo(request):
         content = f.read()
     return web.Response(text=content, content_type='text/html')
 
-async def enhanced_demo(request):
-    """Serve enhanced demo page with better detection visualization."""
-    template_path = WEB_DIR / "templates" / "enhanced_demo.html"
-    with open(template_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    return web.Response(text=content, content_type='text/html')
-
 async def debug_page(request):
     content = open(WEB_DIR / "templates" / "debug.html", "r").read()
     return web.Response(content_type="text/html", text=content)
@@ -187,7 +180,6 @@ async def on_shutdown(app):
 app = web.Application()
 app.on_shutdown.append(on_shutdown)
 app.router.add_get("/", index)
-app.router.add_get("/enhanced", enhanced_demo)
 app.router.add_get("/realtime", realtime_demo)
 app.router.add_get("/detection-stream", websocket_handler)
 app.router.add_get("/debug", debug_page)
@@ -206,11 +198,17 @@ if __name__ == "__main__":
         ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
         ssl_context.load_cert_chain(cert_path, key_path)
         print("🔒 Starting HTTPS server for mobile camera access...")
-        print("🌐 HTTPS URL: https://192.168.0.89:8443")
+        print("🌐 HTTPS URLs:")
+        print("   📱 Mobile: https://192.168.0.89:8443")
+        print("   🖥️  Desktop: https://localhost:8443")
+        print("   ⚡ Real-time: https://localhost:8443/realtime")
         print("⚠️  Accept the security warning in your browser")
         web.run_app(app, host="0.0.0.0", port=8443, ssl_context=ssl_context)
     else:
         # Fallback to HTTP
         print("🌐 Starting HTTP server...")
+        print("🌐 HTTP URLs:")
+        print("   🖥️  Desktop: http://localhost:8080")
+        print("   ⚡ Real-time: http://localhost:8080/realtime")
         print("📱 Mobile browsers may not allow camera access over HTTP")
         web.run_app(app, host="0.0.0.0", port=8080)
