@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Video Stream - Object Detection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+            color: #00f5ff;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .video-container {
+            position: relative;
+            display: inline-block;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 245, 255, 0.2);
+            border: 2px solid rgba(0, 245, 255, 0.1);
+            background: #000;
+        }
+        
+        #videoStream {
+            max-width: 100%;
+            max-height: 70vh;
+            display: block;
+        }
+        
+        .controls {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            min-width: 140px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .primary-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .secondary-btn {
+            background: linear-gradient(45deg, #00f5ff, #0099cc);
+            color: white;
+        }
+        
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 245, 255, 0.4);
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .info-card h3 {
+            color: #00f5ff;
+            margin-top: 0;
+        }
+        
+        .info-card ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .info-card li {
+            margin: 8px 0;
+        }
+        
+        .status {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            color: #ff9800;
+        }
+        
+        .links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .controls, .links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .control-btn {
+                width: 200px;
+            }
+            
+            .info-card {
+                margin: 20px 10px;
+                padding: 15px;
+            }
+        }
+        
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📹 Live Video Stream from Mobile</h1>
+        
+        <div class="info-card">
+            <h3>📱 Setup Instructions:</h3>
+            <ol>
+                <li>Open <strong>https://192.168.0.89:8443/realtime</strong> on your mobile device</li>
+                <li>Click "Start Camera" on your mobile device</li>
+                <li>The live video with object detection will appear below</li>
+                <li>Green boxes will show detected objects in real-time</li>
+            </ol>
+        </div>
+        
+        <div class="video-container">
+            <img id="videoStream" src="/video-stream" alt="Live Video Stream">
+            <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+        </div>
+        
+        <div class="status">
+            🔴 Live video stream from mobile camera with object detection overlays
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn primary-btn" onclick="refreshStream()">🔄 Refresh Stream</button>
+            <button class="control-btn secondary-btn" onclick="toggleAutoRefresh()">⚡ Auto Refresh: <span id="autoStatus">OFF</span></button>
+        </div>
+        
+        <div class="links">
+            <a href="/realtime" class="control-btn secondary-btn">📱 Mobile Camera Page</a>
+            <a href="/metrics/dashboard" class="control-btn secondary-btn">📊 Metrics Dashboard</a>
+            <a href="/" class="control-btn secondary-btn">🏠 Home</a>
+        </div>
+        
+        <div class="info-card">
+            <h3>💡 Tips:</h3>
+            <ul>
+                <li><strong>Refresh Stream:</strong> Click refresh if the video stops updating</li>
+                <li><strong>Auto Refresh:</strong> Automatically refreshes the stream every 10 seconds</li>
+                <li><strong>Fullscreen:</strong> Click the fullscreen button for better viewing</li>
+                <li><strong>Mobile Performance:</strong> Point your phone camera at objects for detection</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        let autoRefreshInterval;
+        let isAutoRefresh = false;
+        
+        function refreshStream() {
+            const img = document.getElementById('videoStream');
+            const timestamp = new Date().getTime();
+            img.src = `/video-stream?t=${timestamp}`;
+            console.log('Stream refreshed');
+        }
+        
+        function toggleAutoRefresh() {
+            const statusEl = document.getElementById('autoStatus');
+            
+            if (isAutoRefresh) {
+                clearInterval(autoRefreshInterval);
+                isAutoRefresh = false;
+                statusEl.textContent = 'OFF';
+                console.log('Auto refresh disabled');
+            } else {
+                autoRefreshInterval = setInterval(refreshStream, 10000); // Refresh every 10 seconds
+                isAutoRefresh = true;
+                statusEl.textContent = 'ON';
+                console.log('Auto refresh enabled');
+            }
+        }
+        
+        function toggleFullscreen() {
+            const container = document.querySelector('.video-container');
+            
+            if (!document.fullscreenElement) {
+                container.requestFullscreen().catch(err => {
+                    console.error('Error attempting to enable fullscreen:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        // Handle fullscreen changes
+        document.addEventListener('fullscreenchange', () => {
+            const btn = document.querySelector('.fullscreen-btn');
+            if (document.fullscreenElement) {
+                btn.textContent = '⛶ Exit Fullscreen';
+            } else {
+                btn.textContent = '⛶ Fullscreen';
+            }
+        });
+        
+        // Auto-refresh stream every few seconds to ensure it stays live
+        setInterval(() => {
+            const img = document.getElementById('videoStream');
+            if (img.complete && img.naturalHeight === 0) {
+                refreshStream();
+            }
+        }, 5000);
+        
+        // Handle image load errors
+        document.getElementById('videoStream').addEventListener('error', () => {
+            console.log('Stream error, attempting refresh...');
+            setTimeout(refreshStream, 2000);
+        });
+        
+        console.log('Live video stream viewer loaded');
+    </script>
+</body>
+</html>

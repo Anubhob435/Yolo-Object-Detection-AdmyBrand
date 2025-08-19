@@ -12,6 +12,7 @@ from aiortc.contrib.media import MediaRelay
 from aiohttp import web, WSMsgType
 from av import VideoFrame
 import numpy as np
+import cv2
 from ultralytics import YOLO
 from .metrics import get_metrics_collector
 from .resources import get_system_info
@@ -73,6 +74,10 @@ websockets = set()  # Store WebSocket connections for real-time detection data
 # Initialize metrics collector
 metrics = get_metrics_collector()
 
+# Global variable to store the latest frame with detections for streaming
+latest_frame = None
+latest_frame_lock = asyncio.Lock()
+
 class ObjectDetectionTrack(VideoStreamTrack):
     """
     A video stream track that runs object detection on frames with comprehensive metrics.
@@ -88,6 +93,10 @@ class ObjectDetectionTrack(VideoStreamTrack):
         # Generate unique frame ID for tracking
         frame_id = f"frame_{self.frame_count}_{time.time()}"
         self.frame_count += 1
+        
+        # Log frame reception every 30 frames (approximately every second at 30fps)
+        if self.frame_count % 30 == 0:
+            logging.info(f"📹 Processing frame #{self.frame_count} from mobile device")
         
         # Start frame processing timing
         metrics.start_frame_processing(frame_id)
@@ -129,9 +138,33 @@ class ObjectDetectionTrack(VideoStreamTrack):
                                 "confidence": conf
                             })
 
+            # Draw detection boxes on frame for streaming
+            frame_with_detections = img.copy()
+            for detection in detections:
+                x1, y1, x2, y2 = detection["x1"], detection["y1"], detection["x2"], detection["y2"]
+                label = detection["class"]
+                conf = detection["confidence"]
+                
+                # Draw bounding box
+                cv2.rectangle(frame_with_detections, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                
+                # Draw label background
+                label_text = f"{label}: {conf:.2f}"
+                label_size = cv2.getTextSize(label_text, cv2.FONT_HERSHEY_SIMPLEX, 0.6, 2)[0]
+                cv2.rectangle(frame_with_detections, (x1, y1 - label_size[1] - 10), (x1 + label_size[0], y1), (0, 255, 0), -1)
+                
+                # Draw label text
+                cv2.putText(frame_with_detections, label_text, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 2)
+            
+            # Store frame globally for streaming (async safe)
+            global latest_frame
+            async with latest_frame_lock:
+                latest_frame = frame_with_detections
+
             # Send detection results via WebSocket
             detection_data_size = 0
             if detections and websockets:
+                logging.info(f"🎯 Found {len(detections)} objects: {[d['class'] for d in detections]}")
                 detection_data = json.dumps({"detections": detections, "frame_id": frame_id, "timestamp": time.time()})
                 detection_data_size = len(detection_data.encode('utf-8'))
                 
@@ -210,8 +243,9 @@ async def offer(request):
 
     @pc.on("track")
     def on_track(track):
-        logging.info(f"[{pc_id}] Track {track.kind} received")
+        logging.info(f"[{pc_id}] Track {track.kind} received from mobile device")
         if track.kind == "video":
+            logging.info(f"[{pc_id}] 📹 Video track established - starting object detection")
             # Add object detection to the track
             detection_track = ObjectDetectionTrack(relay.subscribe(track))
             pc.addTrack(detection_track)
@@ -253,6 +287,20 @@ async def websocket_handler(request):
 async def realtime_demo(request):
     """Serve real-time demo page with WebSocket detection data."""
     template_path = WEB_DIR / "templates" / "realtime_demo.html"
+    with open(template_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return web.Response(text=content, content_type='text/html')
+
+async def remote_viewer(request):
+    """Serve remote camera viewer page to view mobile camera feed on desktop."""
+    template_path = WEB_DIR / "templates" / "remote_viewer.html"
+    with open(template_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return web.Response(text=content, content_type='text/html')
+
+async def video_viewer(request):
+    """Serve live video stream viewer page."""
+    template_path = WEB_DIR / "templates" / "video_stream.html"
     with open(template_path, 'r', encoding='utf-8') as f:
         content = f.read()
     return web.Response(text=content, content_type='text/html')
@@ -398,6 +446,51 @@ async def qr_code_api(request):
             status=500
         )
 
+async def video_stream(request):
+    """Serve live video stream with detection overlays as MJPEG."""
+    response = web.StreamResponse()
+    response.content_type = 'multipart/x-mixed-replace; boundary=frame'
+    await response.prepare(request)
+    
+    try:
+        while True:
+            global latest_frame
+            if latest_frame is not None:
+                async with latest_frame_lock:
+                    frame_copy = latest_frame.copy()
+                
+                # Encode frame as JPEG
+                _, buffer = cv2.imencode('.jpg', frame_copy, [cv2.IMWRITE_JPEG_QUALITY, 85])
+                frame_bytes = buffer.tobytes()
+                
+                # Send frame in MJPEG format
+                await response.write(b'--frame\r\n')
+                await response.write(b'Content-Type: image/jpeg\r\n\r\n')
+                await response.write(frame_bytes)
+                await response.write(b'\r\n')
+            else:
+                # Send a placeholder frame if no video is available
+                placeholder = np.zeros((480, 640, 3), dtype=np.uint8)
+                cv2.putText(placeholder, "Waiting for mobile camera...", (150, 240), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                _, buffer = cv2.imencode('.jpg', placeholder)
+                frame_bytes = buffer.tobytes()
+                
+                await response.write(b'--frame\r\n')
+                await response.write(b'Content-Type: image/jpeg\r\n\r\n')
+                await response.write(frame_bytes)
+                await response.write(b'\r\n')
+            
+            # Control frame rate (approximately 15 FPS for web streaming)
+            await asyncio.sleep(1/15)
+            
+    except Exception as e:
+        logging.error(f"Video stream error: {e}")
+    finally:
+        await response.write_eof()
+    
+    return response
+
 async def metrics_dashboard(request):
     """
     Serve metrics dashboard page from external HTML file.
@@ -433,6 +526,7 @@ app = web.Application()
 app.on_shutdown.append(on_shutdown)
 app.router.add_get("/", index)
 app.router.add_get("/realtime", realtime_demo)
+app.router.add_get("/viewer", remote_viewer)
 app.router.add_get("/detection-stream", websocket_handler)
 app.router.add_get("/debug", debug_page)
 app.router.add_get("/camera-test", camera_test)
@@ -450,6 +544,9 @@ app.router.add_post("/metrics/client", metrics_client)
 app.router.add_get("/system-info", system_info_api)
 # QR code endpoint
 app.router.add_get("/qr-code", qr_code_api)
+# Video stream endpoints
+app.router.add_get("/video-stream", video_stream)
+app.router.add_get("/stream", video_viewer)
 
 if __name__ == "__main__":
     # Check if interface.html exists
