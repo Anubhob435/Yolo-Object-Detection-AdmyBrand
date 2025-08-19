@@ -688,9 +688,6 @@
     
     <div class="tooltip" id="tooltip"></div>
     
-    <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-    
     <script>
         let autoRefresh = false;
         let refreshInterval;
@@ -708,31 +705,34 @@
             const qrContainer = document.getElementById('qr-code');
             const urlDisplay = document.getElementById('qr-url');
             
+            console.log('Generating QR code for:', realtimeUrl);
+            
             // Display the URL
             urlDisplay.textContent = realtimeUrl;
             
-            // Generate QR code
-            QRCode.toCanvas(realtimeUrl, {
-                width: 128,
-                height: 128,
-                margin: 1,
-                color: {
-                    dark: '#000000',
-                    light: '#ffffff'
-                }
-            }, function (error, canvas) {
-                if (error) {
-                    console.error('QR Code generation error:', error);
-                    qrContainer.innerHTML = '<div style="color: #ff6b6b;">QR Error</div>';
-                } else {
-                    qrContainer.innerHTML = '';
-                    qrContainer.appendChild(canvas);
-                }
-            });
+            // Use server-generated QR code image
+            const qrImage = document.createElement('img');
+            qrImage.src = '/qr-code?' + Date.now(); // Add timestamp to prevent caching
+            qrImage.alt = 'QR Code for Mobile Access';
+            qrImage.style.width = '128px';
+            qrImage.style.height = '128px';
+            qrImage.style.display = 'block';
+            
+            qrImage.onload = function() {
+                console.log('QR Code image loaded successfully');
+                qrContainer.innerHTML = '';
+                qrContainer.appendChild(qrImage);
+            };
+            
+            qrImage.onerror = function() {
+                console.error('Failed to load QR code image');
+                qrContainer.innerHTML = '<div style="color: #ff6b6b; font-size: 0.8rem; text-align: center;">QR Code<br>Generation<br>Failed</div>';
+            };
         }
         
         // Initialize QR code on page load
         window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, attempting to generate QR code');
             generateQRCode();
         });
         

@@ -349,6 +349,55 @@ async def system_info_api(request):
             status=500
         )
 
+async def qr_code_api(request):
+    """Generate QR code image for mobile access."""
+    try:
+        if not QR_AVAILABLE:
+            return web.Response(
+                content_type="application/json",
+                text=json.dumps({"error": "QR code library not available"}),
+                status=500
+            )
+        
+        # Get local IP and construct realtime URL
+        local_ip = get_local_ip()
+        protocol = "https" if request.secure else "http"
+        port = "8443" if request.secure else "8080"
+        realtime_url = f"{protocol}://{local_ip}:{port}/realtime"
+        
+        # Generate QR code
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(realtime_url)
+        qr.make(fit=True)
+        
+        # Create image
+        img = qr.make_image(fill_color="black", back_color="white")
+        
+        # Convert to bytes
+        import io
+        img_buffer = io.BytesIO()
+        img.save(img_buffer, format='PNG')
+        img_buffer.seek(0)
+        
+        return web.Response(
+            body=img_buffer.getvalue(),
+            content_type="image/png",
+            headers={"Cache-Control": "no-cache"}
+        )
+        
+    except Exception as e:
+        logging.error(f"Error generating QR code: {e}")
+        return web.Response(
+            content_type="application/json",
+            text=json.dumps({"error": str(e)}),
+            status=500
+        )
+
 async def metrics_dashboard(request):
     """
     Serve metrics dashboard page from external HTML file.
@@ -399,6 +448,8 @@ app.router.add_get("/metrics/dashboard", metrics_dashboard)
 app.router.add_post("/metrics/client", metrics_client)
 # System info endpoint
 app.router.add_get("/system-info", system_info_api)
+# QR code endpoint
+app.router.add_get("/qr-code", qr_code_api)
 
 if __name__ == "__main__":
     # Check if interface.html exists
