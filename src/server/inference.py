@@ -14,6 +14,7 @@ from av import VideoFrame
 import numpy as np
 from ultralytics import YOLO
 from .metrics import get_metrics_collector
+from .resources import get_system_info
 
 try:
     import qrcode
@@ -332,6 +333,22 @@ async def metrics_client(request):
             status=500
         )
 
+async def system_info_api(request):
+    """API endpoint to get system information."""
+    try:
+        system_info = get_system_info()
+        return web.Response(
+            content_type="application/json",
+            text=json.dumps(system_info, indent=2, default=str)
+        )
+    except Exception as e:
+        logging.error(f"Error getting system info: {e}")
+        return web.Response(
+            content_type="application/json",
+            text=json.dumps({"error": str(e)}),
+            status=500
+        )
+
 async def metrics_dashboard(request):
     """
     Serve metrics dashboard page from external HTML file.
@@ -380,6 +397,8 @@ app.router.add_get("/metrics/stats", metrics_statistics)
 app.router.add_get("/metrics/export", metrics_export)
 app.router.add_get("/metrics/dashboard", metrics_dashboard)
 app.router.add_post("/metrics/client", metrics_client)
+# System info endpoint
+app.router.add_get("/system-info", system_info_api)
 
 if __name__ == "__main__":
     # Check if interface.html exists

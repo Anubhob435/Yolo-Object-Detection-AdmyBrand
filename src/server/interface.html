@@ -641,6 +641,10 @@
             <!-- Quick stats will be loaded here -->
         </div>
         
+        <div class="stats-overview" id="system-info-overview">
+            <!-- System info will be loaded here -->
+        </div>
+        
         <div class="controls">
             <div class="btn-group">
                 <button class="btn" onclick="refreshMetrics()" id="refresh-btn">
@@ -979,6 +983,168 @@
             container.innerHTML += systemCard;
         }
         
+        async function loadSystemInfo() {
+            try {
+                const response = await fetch('/system-info');
+                const systemInfo = await response.json();
+                renderSystemInfo(systemInfo);
+            } catch (error) {
+                console.error('Error fetching system info:', error);
+                const container = document.getElementById('system-info-overview');
+                container.innerHTML = `<div class="metric-card danger">
+                    <div class="metric-title">
+                        <div class="title-text">❌ System Info Error</div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">
+                            <span class="label">Error</span>
+                            <span class="value">${error.message}</span>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        }
+        
+        function renderSystemInfo(systemInfo) {
+            const container = document.getElementById('system-info-overview');
+            
+            // System overview card
+            const systemCard = `
+            <div class="metric-card highlight">
+                <div class="metric-title">
+                    <div class="title-text">🖥️ System Information</div>
+                </div>
+                <div class="metric-content">
+                    <div class="metric-value">
+                        <span class="label">OS</span>
+                        <span class="value">${systemInfo.system?.system || 'Unknown'} ${systemInfo.system?.release || ''}</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Machine</span>
+                        <span class="value">${systemInfo.system?.machine || 'Unknown'}</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Node</span>
+                        <span class="value">${systemInfo.system?.node_name || 'Unknown'}</span>
+                    </div>
+                </div>
+            </div>`;
+            
+            // CPU info card
+            const cpuCard = `
+            <div class="metric-card">
+                <div class="metric-title">
+                    <div class="title-text">🚀 CPU Information</div>
+                </div>
+                <div class="metric-content">
+                    <div class="metric-value">
+                        <span class="label">Cores</span>
+                        <span class="value">${systemInfo.cpu?.physical_cores || 0} Physical / ${systemInfo.cpu?.total_cores || 0} Logical</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Frequency</span>
+                        <span class="value">${systemInfo.cpu?.current_frequency || 0} MHz (Max: ${systemInfo.cpu?.max_frequency || 0} MHz)</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Usage</span>
+                        <span class="value ${systemInfo.cpu?.cpu_usage > 80 ? 'danger' : systemInfo.cpu?.cpu_usage > 60 ? 'warning' : 'success'}">${systemInfo.cpu?.cpu_usage || 0}%</span>
+                    </div>
+                </div>
+            </div>`;
+            
+            // Memory info card
+            const memoryCard = `
+            <div class="metric-card">
+                <div class="metric-title">
+                    <div class="title-text">💾 Memory Information</div>
+                </div>
+                <div class="metric-content">
+                    <div class="metric-value">
+                        <span class="label">Total</span>
+                        <span class="value">${systemInfo.memory?.total_gb || 0} GB</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Used</span>
+                        <span class="value">${systemInfo.memory?.used_gb || 0} GB</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Available</span>
+                        <span class="value">${systemInfo.memory?.available_gb || 0} GB</span>
+                    </div>
+                    <div class="metric-value">
+                        <span class="label">Usage</span>
+                        <span class="value ${systemInfo.memory?.percentage > 80 ? 'danger' : systemInfo.memory?.percentage > 60 ? 'warning' : 'success'}">${systemInfo.memory?.percentage || 0}%</span>
+                    </div>
+                </div>
+            </div>`;
+            
+            // GPU info card (if available)
+            let gpuCard = '';
+            if (systemInfo.gpus && systemInfo.gpus.length > 0) {
+                const gpu = systemInfo.gpus[0]; // Show first GPU
+                gpuCard = `
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <div class="title-text">🎮 GPU Information</div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">
+                            <span class="label">Name</span>
+                            <span class="value">${gpu.name || 'Unknown'}</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Memory</span>
+                            <span class="value">${gpu.used_memory_mb || 0}MB / ${gpu.total_memory_mb || 0}MB</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Load</span>
+                            <span class="value ${gpu.load_percent > 80 ? 'danger' : gpu.load_percent > 60 ? 'warning' : 'success'}">${gpu.load_percent || 0}%</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Temperature</span>
+                            <span class="value ${gpu.temperature_c > 80 ? 'danger' : gpu.temperature_c > 70 ? 'warning' : 'success'}">${gpu.temperature_c || 0}°C</span>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            
+            // Disk info card (show primary disk)
+            let diskCard = '';
+            if (systemInfo.disks && systemInfo.disks.length > 0) {
+                const primaryDisk = systemInfo.disks.find(d => d.mountpoint === '/' || d.mountpoint.includes('C:')) || systemInfo.disks[0];
+                diskCard = `
+                <div class="metric-card">
+                    <div class="metric-title">
+                        <div class="title-text">💿 Disk Information</div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value">
+                            <span class="label">Device</span>
+                            <span class="value">${primaryDisk.device || 'Unknown'}</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Total</span>
+                            <span class="value">${primaryDisk.total_gb || 0} GB</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Used</span>
+                            <span class="value">${primaryDisk.used_gb || 0} GB</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Free</span>
+                            <span class="value">${primaryDisk.free_gb || 0} GB</span>
+                        </div>
+                        <div class="metric-value">
+                            <span class="label">Usage</span>
+                            <span class="value ${primaryDisk.percentage > 90 ? 'danger' : primaryDisk.percentage > 75 ? 'warning' : 'success'}">${primaryDisk.percentage || 0}%</span>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            
+            container.innerHTML = systemCard + cpuCard + memoryCard + gpuCard + diskCard;
+        }
+        
         async function refreshMetrics() {
             if (isLoading) return;
             
@@ -996,6 +1162,9 @@
                 
                 metricsData = metrics;
                 renderMetrics(metrics);
+                
+                // Load system information
+                await loadSystemInfo();
                 
                 // Update system status
                 systemStatus.className = 'system-status online';
