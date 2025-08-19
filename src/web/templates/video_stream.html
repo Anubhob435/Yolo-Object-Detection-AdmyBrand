@@ -158,6 +158,42 @@
         .fullscreen-btn:hover {
             background: rgba(0, 0, 0, 0.9);
         }
+        
+        .qr-section {
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+        .qr-container {
+            display: inline-block;
+            margin: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 245, 255, 0.3);
+            border: 2px solid rgba(0, 245, 255, 0.2);
+        }
+        
+        .qr-container h4 {
+            color: #333;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+        }
+        
+        .qr-image {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+        
+        .qr-url {
+            color: #666;
+            font-size: 12px;
+            margin-top: 10px;
+            word-break: break-all;
+        }
     </style>
 </head>
 <body>
@@ -172,6 +208,14 @@
                 <li>The live video with object detection will appear below</li>
                 <li>Green boxes will show detected objects in real-time</li>
             </ol>
+        </div>
+        
+        <div class="qr-section">
+            <div class="qr-container">
+                <h4>📱 Scan with Mobile Device</h4>
+                <img id="qrCode" class="qr-image" src="/qr-code" alt="QR Code for Mobile Access">
+                <div class="qr-url">Scan to open camera on mobile</div>
+            </div>
         </div>
         
         <div class="video-container">
@@ -266,6 +310,15 @@
         document.getElementById('videoStream').addEventListener('error', () => {
             console.log('Stream error, attempting refresh...');
             setTimeout(refreshStream, 2000);
+        });
+        
+        // Handle QR code load errors
+        document.getElementById('qrCode').addEventListener('error', () => {
+            console.log('QR code load error, attempting refresh...');
+            setTimeout(() => {
+                const qrImg = document.getElementById('qrCode');
+                qrImg.src = `/qr-code?t=${new Date().getTime()}`;
+            }, 2000);
         });
         
         console.log('Live video stream viewer loaded');
