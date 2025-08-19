@@ -7,10 +7,25 @@ const peerConnection = new RTCPeerConnection({
     iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
 });
 
+// Initialize metrics collection
+let metricsCollector = null;
+if (typeof ClientMetricsCollector !== 'undefined') {
+    metricsCollector = new ClientMetricsCollector();
+    metricsCollector.setRTCPeerConnection(peerConnection);
+    metricsCollector.startAutoReporting();
+    console.log('📊 Client metrics collection enabled');
+}
+
 const ws = new WebSocket(SIGNALING_SERVER_URL);
 
 ws.onmessage = async (message) => {
     const data = JSON.parse(message.data);
+    
+    // Handle detection results for metrics
+    if (data.detections && metricsCollector) {
+        metricsCollector.recordDetection(data.detections);
+    }
+    
     if (data.offer) {
         await peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer));
         const answer = await peerConnection.createAnswer();
@@ -45,6 +60,12 @@ async function start() {
         const stream = await navigator.mediaDevices.getUserMedia({
             video: { facingMode: 'environment' } // Use rear camera
         });
+        
+        // Record camera access for metrics
+        if (metricsCollector) {
+            metricsCollector.recordCameraAccess(true);
+        }
+        
         video.srcObject = stream;
         stream.getTracks().forEach(track => peerConnection.addTrack(track, stream));
 
@@ -56,7 +77,22 @@ async function start() {
 
     } catch (error) {
         console.error('Error accessing media devices.', error);
+        
+        // Record failed camera access
+        if (metricsCollector) {
+            metricsCollector.recordCameraAccess(false);
+        }
     }
+}
+
+// Expose metrics functions globally for debugging
+if (metricsCollector) {
+    window.exportMetrics = () => metricsCollector.exportMetrics();
+    window.getMetrics = () => metricsCollector.getMetrics();
+    window.viewMetrics = () => {
+        console.table(metricsCollector.getMetrics().statistics);
+        return metricsCollector.getMetrics();
+    };
 }
 
 // In a real application, you'd have logic to determine if this client
