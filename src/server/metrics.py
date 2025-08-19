@@ -69,6 +69,7 @@ class DeviceImpactMetrics:
 class ScalabilityMetrics:
     """System scalability metrics"""
     concurrent_users: int = 0  # Active connections
+    active_connections: int = 0  # Active WebRTC connections (same as concurrent_users)
     server_cpu_usage: float = 0.0  # Server CPU utilization
     server_memory_usage: float = 0.0  # Server memory usage
     cost_per_user: float = 0.0  # Estimated cost per user

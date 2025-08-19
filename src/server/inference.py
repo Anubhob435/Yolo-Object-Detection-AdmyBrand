@@ -144,6 +144,10 @@ async def offer(request):
     pc = RTCPeerConnection()
     pc_id = f"PeerConnection({uuid.uuid4()})"
     pcs.add(pc)
+    
+    # Update connection count immediately
+    metrics.current_scalability.concurrent_users = len(pcs)
+    metrics.current_scalability.active_connections = len(pcs)
 
     logging.info(f"[{pc_id}] Created for {request.remote}")
 
@@ -153,9 +157,11 @@ async def offer(request):
         if pc.connectionState == "connected":
             metrics.record_connection_success(connection_id)
             metrics.current_scalability.concurrent_users = len(pcs)
+            metrics.current_scalability.active_connections = len(pcs)
         elif pc.connectionState == "closed":
             pcs.discard(pc)
             metrics.current_scalability.concurrent_users = len(pcs)
+            metrics.current_scalability.active_connections = len(pcs)
 
     @pc.on("track")
     def on_track(track):
@@ -284,7 +290,7 @@ async def metrics_client(request):
 
 async def metrics_dashboard(request):
     """Serve metrics dashboard page."""
-    dashboard_html = """
+    dashboard_html = r"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1065,20 +1071,20 @@ async def metrics_dashboard(request):
                 },
                 { 
                     label: 'Avg Latency', 
-                    value: `${(metrics.latency?.frame_processing_ms || 0).toFixed(1)}ms`,
-                    status: (metrics.latency?.frame_processing_ms || 0) > 50 ? 'danger' : 
-                           (metrics.latency?.frame_processing_ms || 0) > 25 ? 'warning' : 'normal'
+                    value: `${(metrics.latency?.frame_processing_time || 0).toFixed(1)}ms`,
+                    status: (metrics.latency?.frame_processing_time || 0) > 50 ? 'danger' : 
+                           (metrics.latency?.frame_processing_time || 0) > 25 ? 'warning' : 'normal'
                 },
                 { 
                     label: 'CPU Usage', 
-                    value: `${(metrics.computational?.cpu_usage_percent || 0).toFixed(1)}%`,
-                    status: (metrics.computational?.cpu_usage_percent || 0) > 80 ? 'danger' : 
-                           (metrics.computational?.cpu_usage_percent || 0) > 60 ? 'warning' : 'normal'
+                    value: `${(metrics.computational?.cpu_usage || 0).toFixed(1)}%`,
+                    status: (metrics.computational?.cpu_usage || 0) > 80 ? 'danger' : 
+                           (metrics.computational?.cpu_usage || 0) > 60 ? 'warning' : 'normal'
                 },
                 { 
                     label: 'Detection Rate', 
-                    value: `${(metrics.detection_quality?.detection_rate || 0).toFixed(1)}%`,
-                    status: (metrics.detection_quality?.detection_rate || 0) < 70 ? 'warning' : 'normal'
+                    value: `${calculateDetectionRate(metrics)}%`,
+                    status: calculateDetectionRate(metrics) < 70 ? 'warning' : 'normal'
                 }
             ];
             
@@ -1088,6 +1094,13 @@ async def metrics_dashboard(request):
                     <div class="stat-label">${stat.label}</div>
                 </div>
             `).join('');
+        }
+        
+        function calculateDetectionRate(metrics) {
+            if (!metrics.detection_quality) return 0;
+            const total = metrics.detection_quality.total_frames_processed || 0;
+            const withDetections = metrics.detection_quality.frames_with_detections || 0;
+            return total > 0 ? ((withDetections / total) * 100).toFixed(1) : 0;
         }
         
         function renderMetrics(metrics) {

@@ -1,0 +1,3747 @@
+{
+  "metadata": {
+    "session_id": "1755626005",
+    "export_time": "2025-08-19T23:24:20.196746",
+    "total_runtime": 54.506622552871704,
+    "total_frames": 107,
+    "total_detections": 387
+  },
+  "current_metrics": {
+    "session_id": "1755626005",
+    "timestamp": "2025-08-19T23:24:20.196746",
+    "uptime_seconds": 54.506622552871704,
+    "latency": {
+      "network_rtt": 0.0,
+      "glass_to_glass": 0.0,
+      "inference_time": 0.12099361419677734,
+      "frame_processing_time": 0.12300372123718262,
+      "webrtc_connection_time": 0.0
+    },
+    "computational": {
+      "inference_fps": 9.283633856468247,
+      "model_load_time": 0.0,
+      "cpu_usage": 79.6,
+      "memory_usage": 516.265625,
+      "gpu_usage": 0.0,
+      "device_temperature": 0.0
+    },
+    "network": {
+      "video_bandwidth": 546.5004909971352,
+      "detection_bandwidth": 0.0,
+      "packet_loss_rate": 0.0,
+      "connection_success_rate": 100.0,
+      "total_bytes_sent": 47226,
+      "total_bytes_received": 0
+    },
+    "detection_quality": {
+      "total_detections": 387,
+      "avg_confidence": 0.8239262898763021,
+      "detection_categories": {
+        "laptop": 114,
+        "tv": 105,
+        "keyboard": 103,
+        "mouse": 35,
+        "person": 30
+      },
+      "frames_with_detections": 106,
+      "total_frames_processed": 107
+    },
+    "device_impact": {
+      "battery_usage": 0.0,
+      "thermal_impact": 0.0,
+      "background_cpu": 0.0,
+      "peak_memory": 0.0,
+      "average_memory": 0.0
+    },
+    "scalability": {
+      "concurrent_users": 1,
+      "active_connections": 1,
+      "server_cpu_usage": 0.0,
+      "server_memory_usage": 0.0,
+      "cost_per_user": 0.0,
+      "throughput": 0.0
+    },
+    "privacy": {
+      "data_local_processing": 0,
+      "data_transmitted_size": 0,
+      "encryption_status": true,
+      "ip_exposure_count": 0,
+      "privacy_events": [
+        "2025-08-19T23:23:56.868417: data_transmitted - Detection data: 379 bytes",
+        "2025-08-19T23:23:57.126954: data_transmitted - Detection data: 378 bytes",
+        "2025-08-19T23:23:57.347800: data_transmitted - Detection data: 476 bytes",
+        "2025-08-19T23:23:57.566879: data_transmitted - Detection data: 476 bytes",
+        "2025-08-19T23:23:57.781336: data_transmitted - Detection data: 476 bytes",
+        "2025-08-19T23:23:57.999837: data_transmitted - Detection data: 379 bytes",
+        "2025-08-19T23:23:58.227599: data_transmitted - Detection data: 376 bytes",
+        "2025-08-19T23:23:58.667623: data_transmitted - Detection data: 282 bytes",
+        "2025-08-19T23:23:58.911321: data_transmitted - Detection data: 380 bytes",
+        "2025-08-19T23:23:59.115294: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:23:59.315553: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:23:59.512412: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:23:59.735605: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:23:59.938402: data_transmitted - Detection data: 479 bytes",
+        "2025-08-19T23:24:00.150378: data_transmitted - Detection data: 479 bytes",
+        "2025-08-19T23:24:00.357844: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:00.560705: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:00.762539: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:00.979527: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:01.199356: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:01.429522: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:01.646279: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:01.854814: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:02.062395: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:02.276579: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:02.485839: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:02.689436: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:02.912237: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:03.117830: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:03.361097: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:03.567257: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:03.779517: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:03.980281: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:04.184600: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:04.383210: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:04.587741: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:04.816708: data_transmitted - Detection data: 381 bytes",
+        "2025-08-19T23:24:05.019037: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:05.245356: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:05.490964: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:05.716468: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:05.961697: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:06.197712: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:06.434544: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:06.666956: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:06.903301: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:07.137128: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:07.351172: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:07.577192: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:07.836332: data_transmitted - Detection data: 380 bytes",
+        "2025-08-19T23:24:08.050832: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:08.265913: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:08.482091: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:08.686600: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:08.904373: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:09.110628: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:09.319003: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:09.524390: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:09.778213: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:10.018846: data_transmitted - Detection data: 383 bytes",
+        "2025-08-19T23:24:10.237214: data_transmitted - Detection data: 384 bytes",
+        "2025-08-19T23:24:10.468236: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:10.692721: data_transmitted - Detection data: 378 bytes",
+        "2025-08-19T23:24:10.917624: data_transmitted - Detection data: 375 bytes",
+        "2025-08-19T23:24:11.119295: data_transmitted - Detection data: 478 bytes",
+        "2025-08-19T23:24:11.319690: data_transmitted - Detection data: 476 bytes",
+        "2025-08-19T23:24:11.534446: data_transmitted - Detection data: 382 bytes",
+        "2025-08-19T23:24:11.738646: data_transmitted - Detection data: 476 bytes",
+        "2025-08-19T23:24:11.952609: data_transmitted - Detection data: 477 bytes",
+        "2025-08-19T23:24:12.158460: data_transmitted - Detection data: 478 bytes",
+        "2025-08-19T23:24:12.361455: data_transmitted - Detection data: 379 bytes",
+        "2025-08-19T23:24:12.670570: data_transmitted - Detection data: 380 bytes",
+        "2025-08-19T23:24:13.028347: data_transmitted - Detection data: 190 bytes",
+        "2025-08-19T23:24:13.261303: data_transmitted - Detection data: 574 bytes",
+        "2025-08-19T23:24:13.487969: data_transmitted - Detection data: 675 bytes",
+        "2025-08-19T23:24:13.699481: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:13.918953: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:14.155349: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:14.382244: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:14.616172: data_transmitted - Detection data: 576 bytes",
+        "2025-08-19T23:24:14.844644: data_transmitted - Detection data: 575 bytes",
+        "2025-08-19T23:24:15.054584: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:15.271390: data_transmitted - Detection data: 575 bytes",
+        "2025-08-19T23:24:15.488049: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:15.699771: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:15.920625: data_transmitted - Detection data: 576 bytes",
+        "2025-08-19T23:24:16.135573: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:16.337713: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:16.542037: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:16.762131: data_transmitted - Detection data: 676 bytes",
+        "2025-08-19T23:24:16.970814: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:17.182477: data_transmitted - Detection data: 576 bytes",
+        "2025-08-19T23:24:17.395863: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:17.610119: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:17.822129: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:18.036076: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:18.252555: data_transmitted - Detection data: 481 bytes",
+        "2025-08-19T23:24:18.470059: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:18.674609: data_transmitted - Detection data: 577 bytes",
+        "2025-08-19T23:24:18.899872: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:19.119193: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:19.329567: data_transmitted - Detection data: 579 bytes",
+        "2025-08-19T23:24:19.536477: data_transmitted - Detection data: 578 bytes",
+        "2025-08-19T23:24:19.765624: data_transmitted - Detection data: 480 bytes",
+        "2025-08-19T23:24:19.967839: data_transmitted - Detection data: 381 bytes",
+        "2025-08-19T23:24:20.195739: data_transmitted - Detection data: 383 bytes"
+      ]
+    }
+  },
+  "statistics": {
+    "latency": {
+      "avg_inference_time": 0.10921536207199097,
+      "min_inference_time": 0.0880119800567627,
+      "max_inference_time": 0.24716997146606445,
+      "median_inference_time": 0.10509860515594482,
+      "std_inference_time": 0.0188685594980337
+    },
+    "performance": {
+      "avg_fps": 8.769909844499063,
+      "min_fps": 1.3765097939932676,
+      "max_fps": 10.126436073960601,
+      "median_fps": 9.189830078330857
+    },
+    "detection": {
+      "detection_rate": 99.06542056074767,
+      "avg_detections_per_frame": 3.616822429906542,
+      "most_detected_classes": {
+        "laptop": 114,
+        "tv": 105,
+        "keyboard": 103,
+        "mouse": 35,
+        "person": 30
+      }
+    }
+  },
+  "raw_history": {
+    "latency": [
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11493682861328125,
+        "frame_processing_time": 0.11593389511108398,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09967184066772461,
+        "frame_processing_time": 0.1016688346862793,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12615370750427246,
+        "frame_processing_time": 0.12770295143127441,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09145927429199219,
+        "frame_processing_time": 0.09345889091491699,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09139013290405273,
+        "frame_processing_time": 0.09338831901550293,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.0880119800567627,
+        "frame_processing_time": 0.09000444412231445,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11467528343200684,
+        "frame_processing_time": 0.1156764030456543,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09099745750427246,
+        "frame_processing_time": 0.0919952392578125,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10200786590576172,
+        "frame_processing_time": 0.10300326347351074,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09591937065124512,
+        "frame_processing_time": 0.09905457496643066,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09400296211242676,
+        "frame_processing_time": 0.09599995613098145,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.0950014591217041,
+        "frame_processing_time": 0.0950014591217041,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1089329719543457,
+        "frame_processing_time": 0.10993170738220215,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11123275756835938,
+        "frame_processing_time": 0.11275291442871094,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1201474666595459,
+        "frame_processing_time": 0.1211695671081543,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10724854469299316,
+        "frame_processing_time": 0.10924816131591797,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10000276565551758,
+        "frame_processing_time": 0.10199499130249023,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09746336936950684,
+        "frame_processing_time": 0.09846067428588867,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10526394844055176,
+        "frame_processing_time": 0.10626411437988281,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09869861602783203,
+        "frame_processing_time": 0.09969544410705566,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09399700164794922,
+        "frame_processing_time": 0.09399700164794922,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10426497459411621,
+        "frame_processing_time": 0.10627985000610352,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09700322151184082,
+        "frame_processing_time": 0.09800148010253906,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.13455462455749512,
+        "frame_processing_time": 0.1355571746826172,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09869980812072754,
+        "frame_processing_time": 0.09969687461853027,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10355019569396973,
+        "frame_processing_time": 0.10455846786499023,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09225320816040039,
+        "frame_processing_time": 0.09424924850463867,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09534430503845215,
+        "frame_processing_time": 0.09634089469909668,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.08836984634399414,
+        "frame_processing_time": 0.09038996696472168,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09360671043395996,
+        "frame_processing_time": 0.09460234642028809,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11846542358398438,
+        "frame_processing_time": 0.11946749687194824,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09334754943847656,
+        "frame_processing_time": 0.0943455696105957,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11677026748657227,
+        "frame_processing_time": 0.11875319480895996,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1357436180114746,
+        "frame_processing_time": 0.13674712181091309,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11598038673400879,
+        "frame_processing_time": 0.11801481246948242,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1359853744506836,
+        "frame_processing_time": 0.13698649406433105,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1251358985900879,
+        "frame_processing_time": 0.12613487243652344,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1280808448791504,
+        "frame_processing_time": 0.13010096549987793,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12290811538696289,
+        "frame_processing_time": 0.12389254570007324,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12685489654541016,
+        "frame_processing_time": 0.12984943389892578,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12430715560913086,
+        "frame_processing_time": 0.1263103485107422,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10199999809265137,
+        "frame_processing_time": 0.1029963493347168,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11800360679626465,
+        "frame_processing_time": 0.11900115013122559,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1483452320098877,
+        "frame_processing_time": 0.1498708724975586,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10485029220581055,
+        "frame_processing_time": 0.10728955268859863,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10654306411743164,
+        "frame_processing_time": 0.10891485214233398,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10772991180419922,
+        "frame_processing_time": 0.10873150825500488,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09324312210083008,
+        "frame_processing_time": 0.09523725509643555,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10425710678100586,
+        "frame_processing_time": 0.10625743865966797,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09643435478210449,
+        "frame_processing_time": 0.09743523597717285,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10069966316223145,
+        "frame_processing_time": 0.10069966316223145,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09752345085144043,
+        "frame_processing_time": 0.09852385520935059,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.14191436767578125,
+        "frame_processing_time": 0.14292144775390625,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12971782684326172,
+        "frame_processing_time": 0.13171815872192383,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1094503402709961,
+        "frame_processing_time": 0.11146163940429688,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12050700187683105,
+        "frame_processing_time": 0.12251091003417969,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10800814628601074,
+        "frame_processing_time": 0.11438679695129395,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1114189624786377,
+        "frame_processing_time": 0.11339020729064941,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09716105461120605,
+        "frame_processing_time": 0.09716105461120605,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09299826622009277,
+        "frame_processing_time": 0.0949561595916748,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10800957679748535,
+        "frame_processing_time": 0.10900545120239258,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09637784957885742,
+        "frame_processing_time": 0.09738850593566895,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10493326187133789,
+        "frame_processing_time": 0.10592484474182129,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09499669075012207,
+        "frame_processing_time": 0.09800577163696289,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09515762329101562,
+        "frame_processing_time": 0.09615445137023926,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11660909652709961,
+        "frame_processing_time": 0.11660909652709961,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.24716997146606445,
+        "frame_processing_time": 0.24716997146606445,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11976265907287598,
+        "frame_processing_time": 0.12276005744934082,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11720108985900879,
+        "frame_processing_time": 0.11820244789123535,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1020057201385498,
+        "frame_processing_time": 0.10299038887023926,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11012721061706543,
+        "frame_processing_time": 0.112152099609375,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12658905982971191,
+        "frame_processing_time": 0.1286029815673828,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1142892837524414,
+        "frame_processing_time": 0.11627650260925293,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12743139266967773,
+        "frame_processing_time": 0.12841534614562988,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11642575263977051,
+        "frame_processing_time": 0.12042236328125,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10199928283691406,
+        "frame_processing_time": 0.10399842262268066,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10697150230407715,
+        "frame_processing_time": 0.10898923873901367,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10622072219848633,
+        "frame_processing_time": 0.10819029808044434,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10240626335144043,
+        "frame_processing_time": 0.10443282127380371,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11431717872619629,
+        "frame_processing_time": 0.11531352996826172,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10300230979919434,
+        "frame_processing_time": 0.10498785972595215,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09299373626708984,
+        "frame_processing_time": 0.09499168395996094,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09504413604736328,
+        "frame_processing_time": 0.09800148010253906,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11099720001220703,
+        "frame_processing_time": 0.11199784278869629,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10083198547363281,
+        "frame_processing_time": 0.10182929039001465,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10315465927124023,
+        "frame_processing_time": 0.10415077209472656,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1031348705291748,
+        "frame_processing_time": 0.10512065887451172,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10363936424255371,
+        "frame_processing_time": 0.10660719871520996,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10542654991149902,
+        "frame_processing_time": 0.10641074180603027,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10457277297973633,
+        "frame_processing_time": 0.10557103157043457,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10827350616455078,
+        "frame_processing_time": 0.10927391052246094,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10847330093383789,
+        "frame_processing_time": 0.11047577857971191,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09499096870422363,
+        "frame_processing_time": 0.09699797630310059,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11853575706481934,
+        "frame_processing_time": 0.1195828914642334,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.1127617359161377,
+        "frame_processing_time": 0.1127617359161377,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.10247659683227539,
+        "frame_processing_time": 0.10449361801147461,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09999918937683105,
+        "frame_processing_time": 0.10199713706970215,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.11898589134216309,
+        "frame_processing_time": 0.12101125717163086,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.09499907493591309,
+        "frame_processing_time": 0.09499907493591309,
+        "webrtc_connection_time": 0.0
+      },
+      {
+        "network_rtt": 0.0,
+        "glass_to_glass": 0.0,
+        "inference_time": 0.12099361419677734,
+        "frame_processing_time": 0.12300372123718262,
+        "webrtc_connection_time": 0.0
+      }
+    ],
+    "computational": [
+      {
+        "inference_fps": 1.3765097939932676,
+        "model_load_time": 0.0,
+        "cpu_usage": 82.1,
+        "memory_usage": 435.171875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 1.5380891031406703,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.8,
+        "memory_usage": 436.56640625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 1.6971756074023971,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.4,
+        "memory_usage": 444.76953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 1.8414066695095033,
+        "model_load_time": 0.0,
+        "cpu_usage": 88.0,
+        "memory_usage": 447.46875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.859817387768466,
+        "model_load_time": 0.0,
+        "cpu_usage": 82.1,
+        "memory_usage": 448.375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.250027953172756,
+        "model_load_time": 0.0,
+        "cpu_usage": 78.0,
+        "memory_usage": 449.6953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.454089566610774,
+        "model_load_time": 0.0,
+        "cpu_usage": 77.2,
+        "memory_usage": 450.80078125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.39972094219882,
+        "model_load_time": 0.0,
+        "cpu_usage": 82.1,
+        "memory_usage": 451.90234375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.506969912643761,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.8,
+        "memory_usage": 453.015625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.561343059330513,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.5,
+        "memory_usage": 454.125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.690985333569621,
+        "model_load_time": 0.0,
+        "cpu_usage": 80.4,
+        "memory_usage": 455.22265625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.881883066733453,
+        "model_load_time": 0.0,
+        "cpu_usage": 81.1,
+        "memory_usage": 456.37109375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.947422881635909,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.8,
+        "memory_usage": 457.4765625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 10.126436073960601,
+        "model_load_time": 0.0,
+        "cpu_usage": 84.6,
+        "memory_usage": 458.83984375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.932377582965099,
+        "model_load_time": 0.0,
+        "cpu_usage": 84.3,
+        "memory_usage": 459.91796875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.665669059403147,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.6,
+        "memory_usage": 460.97265625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.489167319178742,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 462.35546875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.613981025109835,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.9,
+        "memory_usage": 463.4609375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.554591053733049,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.2,
+        "memory_usage": 464.56640625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.524915135841697,
+        "model_load_time": 0.0,
+        "cpu_usage": 80.4,
+        "memory_usage": 465.69140625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.519104461081623,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 467.0234375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.537288573023526,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 465.84765625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.435792220647455,
+        "model_load_time": 0.0,
+        "cpu_usage": 90.0,
+        "memory_usage": 468.046875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.543221356882192,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.5,
+        "memory_usage": 469.703125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.339959458517574,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.7,
+        "memory_usage": 471.296875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.531109750704783,
+        "model_load_time": 0.0,
+        "cpu_usage": 76.4,
+        "memory_usage": 472.61328125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.573903166782927,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.0,
+        "memory_usage": 473.68359375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.645430779618112,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.9,
+        "memory_usage": 474.80078125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.665192413028214,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.8,
+        "memory_usage": 475.90234375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.815792873230524,
+        "model_load_time": 0.0,
+        "cpu_usage": 77.1,
+        "memory_usage": 477.015625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.865111319030193,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.3,
+        "memory_usage": 478.390625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.623307181279733,
+        "model_load_time": 0.0,
+        "cpu_usage": 76.8,
+        "memory_usage": 479.74609375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.735112264818568,
+        "model_load_time": 0.0,
+        "cpu_usage": 81.2,
+        "memory_usage": 480.86328125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.542337698738793,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.7,
+        "memory_usage": 482.25,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.531514780617202,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 483.35546875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.3679524891173,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.3,
+        "memory_usage": 484.6796875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.091759201595906,
+        "model_load_time": 0.0,
+        "cpu_usage": 77.1,
+        "memory_usage": 486.046875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.835617809073064,
+        "model_load_time": 0.0,
+        "cpu_usage": 82.1,
+        "memory_usage": 487.1484375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.5796932112626,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.2,
+        "memory_usage": 488.51953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.33996764072576,
+        "model_load_time": 0.0,
+        "cpu_usage": 78.2,
+        "memory_usage": 489.61328125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.101807263591757,
+        "model_load_time": 0.0,
+        "cpu_usage": 94.0,
+        "memory_usage": 491.01171875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.057138916406807,
+        "model_load_time": 0.0,
+        "cpu_usage": 95.8,
+        "memory_usage": 492.39453125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.001368947591017,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 493.5,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.999781805267686,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.2,
+        "memory_usage": 494.8671875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.916666981246748,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.7,
+        "memory_usage": 496.23046875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.9844616961125485,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.5,
+        "memory_usage": 497.328125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.167526135552412,
+        "model_load_time": 0.0,
+        "cpu_usage": 76.8,
+        "memory_usage": 498.6953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.285295338308496,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 499.8046875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.531739880938579,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.3,
+        "memory_usage": 500.90625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.662067746338353,
+        "model_load_time": 0.0,
+        "cpu_usage": 94.6,
+        "memory_usage": 502.01171875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.91230199507203,
+        "model_load_time": 0.0,
+        "cpu_usage": 96.1,
+        "memory_usage": 503.1171875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.120477031175897,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.6,
+        "memory_usage": 504.4921875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.157833004149765,
+        "model_load_time": 0.0,
+        "cpu_usage": 93.0,
+        "memory_usage": 505.59765625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.961523579341446,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.9,
+        "memory_usage": 506.9765625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.109716783056546,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.0,
+        "memory_usage": 508.078125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.075225003397012,
+        "model_load_time": 0.0,
+        "cpu_usage": 80.0,
+        "memory_usage": 509.44140625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.964613076956287,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.7,
+        "memory_usage": 482.71484375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.919394001514954,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.8,
+        "memory_usage": 476.796875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.777278165351182,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.5,
+        "memory_usage": 478.28515625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.847921290006834,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.2,
+        "memory_usage": 479.1640625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.867371579364411,
+        "model_load_time": 0.0,
+        "cpu_usage": 77.2,
+        "memory_usage": 479.43359375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.802540421278273,
+        "model_load_time": 0.0,
+        "cpu_usage": 78.4,
+        "memory_usage": 480.234375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.811346443795394,
+        "model_load_time": 0.0,
+        "cpu_usage": 80.0,
+        "memory_usage": 480.76953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.108266727355089,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.4,
+        "memory_usage": 481.3125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.396806392770584,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.7,
+        "memory_usage": 481.84765625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.53394134891628,
+        "model_load_time": 0.0,
+        "cpu_usage": 98.3,
+        "memory_usage": 481.94140625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.587890051284864,
+        "model_load_time": 0.0,
+        "cpu_usage": 78.6,
+        "memory_usage": 482.2734375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.505097213474635,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.0,
+        "memory_usage": 483.3359375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.43785469514273,
+        "model_load_time": 0.0,
+        "cpu_usage": 76.0,
+        "memory_usage": 484.125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.29065884019836,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.2,
+        "memory_usage": 484.39453125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.235800949188752,
+        "model_load_time": 0.0,
+        "cpu_usage": 90.0,
+        "memory_usage": 485.109375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.21451289941496,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.7,
+        "memory_usage": 485.98828125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.009148939704875,
+        "model_load_time": 0.0,
+        "cpu_usage": 96.1,
+        "memory_usage": 487.078125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.943292712604508,
+        "model_load_time": 0.0,
+        "cpu_usage": 95.8,
+        "memory_usage": 487.67578125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.755946164246978,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.2,
+        "memory_usage": 488.97265625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.612660203210988,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.5,
+        "memory_usage": 490.30859375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 7.686450726164842,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.0,
+        "memory_usage": 491.37109375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.599858360715972,
+        "model_load_time": 0.0,
+        "cpu_usage": 81.4,
+        "memory_usage": 492.70703125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.70898002270732,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.4,
+        "memory_usage": 493.23046875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.81468520152306,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.3,
+        "memory_usage": 494.37890625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.719964923084216,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.6,
+        "memory_usage": 495.69921875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 8.77478267564193,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.5,
+        "memory_usage": 497.29296875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.0414436289388,
+        "model_load_time": 0.0,
+        "cpu_usage": 88.0,
+        "memory_usage": 498.33203125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.193347690048386,
+        "model_load_time": 0.0,
+        "cpu_usage": 83.7,
+        "memory_usage": 498.91015625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.33423093314402,
+        "model_load_time": 0.0,
+        "cpu_usage": 80.7,
+        "memory_usage": 501.296875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.499089566706225,
+        "model_load_time": 0.0,
+        "cpu_usage": 84.0,
+        "memory_usage": 502.8828125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.497715075159885,
+        "model_load_time": 0.0,
+        "cpu_usage": 91.8,
+        "memory_usage": 504.15234375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.532740909835763,
+        "model_load_time": 0.0,
+        "cpu_usage": 89.3,
+        "memory_usage": 505.57421875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.547148775633909,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 506.375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.529154395418521,
+        "model_load_time": 0.0,
+        "cpu_usage": 76.0,
+        "memory_usage": 507.1875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.618449941133116,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.0,
+        "memory_usage": 508.52734375,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.578960518313467,
+        "model_load_time": 0.0,
+        "cpu_usage": 77.2,
+        "memory_usage": 509.3203125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.438960412349605,
+        "model_load_time": 0.0,
+        "cpu_usage": 85.7,
+        "memory_usage": 510.11328125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.447909503065617,
+        "model_load_time": 0.0,
+        "cpu_usage": 92.0,
+        "memory_usage": 510.671875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.380684838767467,
+        "model_load_time": 0.0,
+        "cpu_usage": 93.8,
+        "memory_usage": 511.9921875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.28545890508155,
+        "model_load_time": 0.0,
+        "cpu_usage": 87.5,
+        "memory_usage": 512.26953125,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.282503836999185,
+        "model_load_time": 0.0,
+        "cpu_usage": 75.5,
+        "memory_usage": 513.32421875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.309495885385639,
+        "model_load_time": 0.0,
+        "cpu_usage": 78.2,
+        "memory_usage": 514.4140625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.186312466613328,
+        "model_load_time": 0.0,
+        "cpu_usage": 82.5,
+        "memory_usage": 515.46875,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      },
+      {
+        "inference_fps": 9.283633856468247,
+        "model_load_time": 0.0,
+        "cpu_usage": 79.6,
+        "memory_usage": 516.265625,
+        "gpu_usage": 0.0,
+        "device_temperature": 0.0
+      }
+    ],
+    "network": [
+      {
+        "video_bandwidth": 14.222614704979765,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 2940,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 10.898303591915814,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 3222,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 15.127262113800128,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 3602,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 15.7459838106012,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 3985,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 16.281543743046864,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 4368,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 16.812314479186853,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 4750,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 17.499108357618233,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 5134,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 22.65144962926175,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 5613,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 23.528497657323243,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 6092,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 19.5744505758227,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 6475,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 20.406166620967998,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 6858,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 21.36824710488147,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 7242,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 22.224992100273127,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 7624,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 23.403223054302792,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 8008,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 24.490977730388714,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 8391,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 25.84960958586977,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 8775,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 27.304392319073763,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 9159,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 28.85853916244225,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 9542,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 30.67726000289391,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 9925,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 32.75138914532251,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 10308,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 35.236718076367815,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 10692,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 37.84360259989917,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 11075,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 41.17466920431105,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 11459,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 44.6945944394653,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 11842,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 49.38150615591439,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 12226,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 54.95269762010572,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 12610,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 62.04904609688351,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 12994,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 71.01130412372729,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 13377,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 83.40445087231,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 13760,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 100.64017721248494,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 14142,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 125.94698455996024,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 14523,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 172.3566493815553,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 14907,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 264.15214098324304,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 15291,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 15673,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 16055,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 16439,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 16823,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 17207,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 17590,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 17974,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 18358,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 18741,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 19124,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 19504,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 19886,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 20270,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 20654,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 21038,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 21422,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 21804,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 22188,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 22570,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 22952,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 23335,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 23719,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 24101,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 24479,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 24854,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 25332,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 25808,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 26190,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 26666,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 27143,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 27621,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 28000,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 28380,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 28570,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 29144,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 29819,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 30396,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 30974,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 31551,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 32129,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 32705,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 33280,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 33857,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 34432,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 35010,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 35587,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 36163,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 36740,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 37317,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 37895,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 38571,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 39148,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 39724,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 40301,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 40878,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 41456,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 42034,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 42515,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 43092,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 43669,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 44247,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 44825,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 45404,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 45982,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 46462,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 46843,
+        "total_bytes_received": 0
+      },
+      {
+        "video_bandwidth": 546.5004909971352,
+        "detection_bandwidth": 0.0,
+        "packet_loss_rate": 0.0,
+        "connection_success_rate": 100.0,
+        "total_bytes_sent": 47226,
+        "total_bytes_received": 0
+      }
+    ],
+    "detection": [
+      {
+        "total_detections": 24,
+        "avg_confidence": 0.7853823304176331,
+        "detection_categories": {
+          "laptop": 7,
+          "tv": 7,
+          "keyboard": 7,
+          "mouse": 3
+        },
+        "frames_with_detections": 7,
+        "total_frames_processed": 8
+      },
+      {
+        "total_detections": 26,
+        "avg_confidence": 0.6577614843845367,
+        "detection_categories": {
+          "laptop": 7,
+          "tv": 8,
+          "keyboard": 8,
+          "mouse": 3
+        },
+        "frames_with_detections": 8,
+        "total_frames_processed": 9
+      },
+      {
+        "total_detections": 29,
+        "avg_confidence": 0.7027077078819275,
+        "detection_categories": {
+          "laptop": 8,
+          "tv": 9,
+          "keyboard": 9,
+          "mouse": 3
+        },
+        "frames_with_detections": 9,
+        "total_frames_processed": 10
+      },
+      {
+        "total_detections": 32,
+        "avg_confidence": 0.6964762409528097,
+        "detection_categories": {
+          "laptop": 9,
+          "tv": 10,
+          "keyboard": 10,
+          "mouse": 3
+        },
+        "frames_with_detections": 10,
+        "total_frames_processed": 11
+      },
+      {
+        "total_detections": 35,
+        "avg_confidence": 0.7643258174260458,
+        "detection_categories": {
+          "laptop": 10,
+          "tv": 11,
+          "keyboard": 11,
+          "mouse": 3
+        },
+        "frames_with_detections": 11,
+        "total_frames_processed": 12
+      },
+      {
+        "total_detections": 38,
+        "avg_confidence": 0.7668893138567606,
+        "detection_categories": {
+          "laptop": 11,
+          "tv": 12,
+          "keyboard": 12,
+          "mouse": 3
+        },
+        "frames_with_detections": 12,
+        "total_frames_processed": 13
+      },
+      {
+        "total_detections": 41,
+        "avg_confidence": 0.781845490137736,
+        "detection_categories": {
+          "laptop": 12,
+          "tv": 13,
+          "keyboard": 13,
+          "mouse": 3
+        },
+        "frames_with_detections": 13,
+        "total_frames_processed": 14
+      },
+      {
+        "total_detections": 45,
+        "avg_confidence": 0.7250796258449554,
+        "detection_categories": {
+          "laptop": 14,
+          "tv": 14,
+          "keyboard": 14,
+          "mouse": 3
+        },
+        "frames_with_detections": 14,
+        "total_frames_processed": 15
+      },
+      {
+        "total_detections": 49,
+        "avg_confidence": 0.7243529856204987,
+        "detection_categories": {
+          "laptop": 16,
+          "tv": 15,
+          "keyboard": 15,
+          "mouse": 3
+        },
+        "frames_with_detections": 15,
+        "total_frames_processed": 16
+      },
+      {
+        "total_detections": 52,
+        "avg_confidence": 0.7971322933832804,
+        "detection_categories": {
+          "laptop": 17,
+          "tv": 16,
+          "keyboard": 16,
+          "mouse": 3
+        },
+        "frames_with_detections": 16,
+        "total_frames_processed": 17
+      },
+      {
+        "total_detections": 55,
+        "avg_confidence": 0.7887793978055319,
+        "detection_categories": {
+          "laptop": 18,
+          "tv": 17,
+          "keyboard": 17,
+          "mouse": 3
+        },
+        "frames_with_detections": 17,
+        "total_frames_processed": 18
+      },
+      {
+        "total_detections": 58,
+        "avg_confidence": 0.7666361729303995,
+        "detection_categories": {
+          "laptop": 19,
+          "tv": 18,
+          "keyboard": 18,
+          "mouse": 3
+        },
+        "frames_with_detections": 18,
+        "total_frames_processed": 19
+      },
+      {
+        "total_detections": 61,
+        "avg_confidence": 0.7938528060913086,
+        "detection_categories": {
+          "laptop": 20,
+          "tv": 19,
+          "keyboard": 19,
+          "mouse": 3
+        },
+        "frames_with_detections": 19,
+        "total_frames_processed": 20
+      },
+      {
+        "total_detections": 64,
+        "avg_confidence": 0.8073268532752991,
+        "detection_categories": {
+          "laptop": 21,
+          "tv": 20,
+          "keyboard": 20,
+          "mouse": 3
+        },
+        "frames_with_detections": 20,
+        "total_frames_processed": 21
+      },
+      {
+        "total_detections": 67,
+        "avg_confidence": 0.7881086866060892,
+        "detection_categories": {
+          "laptop": 22,
+          "tv": 21,
+          "keyboard": 21,
+          "mouse": 3
+        },
+        "frames_with_detections": 21,
+        "total_frames_processed": 22
+      },
+      {
+        "total_detections": 70,
+        "avg_confidence": 0.8004334966341654,
+        "detection_categories": {
+          "laptop": 23,
+          "tv": 22,
+          "keyboard": 22,
+          "mouse": 3
+        },
+        "frames_with_detections": 22,
+        "total_frames_processed": 23
+      },
+      {
+        "total_detections": 73,
+        "avg_confidence": 0.7955061992009481,
+        "detection_categories": {
+          "laptop": 24,
+          "tv": 23,
+          "keyboard": 23,
+          "mouse": 3
+        },
+        "frames_with_detections": 23,
+        "total_frames_processed": 24
+      },
+      {
+        "total_detections": 76,
+        "avg_confidence": 0.7994113564491272,
+        "detection_categories": {
+          "laptop": 25,
+          "tv": 24,
+          "keyboard": 24,
+          "mouse": 3
+        },
+        "frames_with_detections": 24,
+        "total_frames_processed": 25
+      },
+      {
+        "total_detections": 79,
+        "avg_confidence": 0.8004923462867737,
+        "detection_categories": {
+          "laptop": 26,
+          "tv": 25,
+          "keyboard": 25,
+          "mouse": 3
+        },
+        "frames_with_detections": 25,
+        "total_frames_processed": 26
+      },
+      {
+        "total_detections": 82,
+        "avg_confidence": 0.8164010643959045,
+        "detection_categories": {
+          "laptop": 27,
+          "tv": 26,
+          "keyboard": 26,
+          "mouse": 3
+        },
+        "frames_with_detections": 26,
+        "total_frames_processed": 27
+      },
+      {
+        "total_detections": 85,
+        "avg_confidence": 0.8178845047950745,
+        "detection_categories": {
+          "laptop": 28,
+          "tv": 27,
+          "keyboard": 27,
+          "mouse": 3
+        },
+        "frames_with_detections": 27,
+        "total_frames_processed": 28
+      },
+      {
+        "total_detections": 88,
+        "avg_confidence": 0.8201332290967306,
+        "detection_categories": {
+          "laptop": 29,
+          "tv": 28,
+          "keyboard": 28,
+          "mouse": 3
+        },
+        "frames_with_detections": 28,
+        "total_frames_processed": 29
+      },
+      {
+        "total_detections": 91,
+        "avg_confidence": 0.8160409132639567,
+        "detection_categories": {
+          "laptop": 30,
+          "tv": 29,
+          "keyboard": 29,
+          "mouse": 3
+        },
+        "frames_with_detections": 29,
+        "total_frames_processed": 30
+      },
+      {
+        "total_detections": 94,
+        "avg_confidence": 0.8103361328442892,
+        "detection_categories": {
+          "laptop": 31,
+          "tv": 30,
+          "keyboard": 30,
+          "mouse": 3
+        },
+        "frames_with_detections": 30,
+        "total_frames_processed": 31
+      },
+      {
+        "total_detections": 97,
+        "avg_confidence": 0.8104275067647299,
+        "detection_categories": {
+          "laptop": 32,
+          "tv": 31,
+          "keyboard": 31,
+          "mouse": 3
+        },
+        "frames_with_detections": 31,
+        "total_frames_processed": 32
+      },
+      {
+        "total_detections": 100,
+        "avg_confidence": 0.8187966346740723,
+        "detection_categories": {
+          "laptop": 33,
+          "tv": 32,
+          "keyboard": 32,
+          "mouse": 3
+        },
+        "frames_with_detections": 32,
+        "total_frames_processed": 33
+      },
+      {
+        "total_detections": 103,
+        "avg_confidence": 0.824465294679006,
+        "detection_categories": {
+          "laptop": 34,
+          "tv": 33,
+          "keyboard": 33,
+          "mouse": 3
+        },
+        "frames_with_detections": 33,
+        "total_frames_processed": 34
+      },
+      {
+        "total_detections": 106,
+        "avg_confidence": 0.8160532116889954,
+        "detection_categories": {
+          "laptop": 35,
+          "tv": 34,
+          "keyboard": 34,
+          "mouse": 3
+        },
+        "frames_with_detections": 34,
+        "total_frames_processed": 35
+      },
+      {
+        "total_detections": 109,
+        "avg_confidence": 0.8358146150906881,
+        "detection_categories": {
+          "laptop": 36,
+          "tv": 35,
+          "keyboard": 35,
+          "mouse": 3
+        },
+        "frames_with_detections": 35,
+        "total_frames_processed": 36
+      },
+      {
+        "total_detections": 112,
+        "avg_confidence": 0.8334619005521139,
+        "detection_categories": {
+          "laptop": 37,
+          "tv": 36,
+          "keyboard": 36,
+          "mouse": 3
+        },
+        "frames_with_detections": 36,
+        "total_frames_processed": 37
+      },
+      {
+        "total_detections": 115,
+        "avg_confidence": 0.831688384215037,
+        "detection_categories": {
+          "laptop": 38,
+          "tv": 37,
+          "keyboard": 37,
+          "mouse": 3
+        },
+        "frames_with_detections": 37,
+        "total_frames_processed": 38
+      },
+      {
+        "total_detections": 118,
+        "avg_confidence": 0.8346917827924093,
+        "detection_categories": {
+          "laptop": 39,
+          "tv": 38,
+          "keyboard": 38,
+          "mouse": 3
+        },
+        "frames_with_detections": 38,
+        "total_frames_processed": 39
+      },
+      {
+        "total_detections": 121,
+        "avg_confidence": 0.8397907217343649,
+        "detection_categories": {
+          "laptop": 40,
+          "tv": 39,
+          "keyboard": 39,
+          "mouse": 3
+        },
+        "frames_with_detections": 39,
+        "total_frames_processed": 40
+      },
+      {
+        "total_detections": 124,
+        "avg_confidence": 0.8412023584047953,
+        "detection_categories": {
+          "laptop": 41,
+          "tv": 40,
+          "keyboard": 40,
+          "mouse": 3
+        },
+        "frames_with_detections": 40,
+        "total_frames_processed": 41
+      },
+      {
+        "total_detections": 127,
+        "avg_confidence": 0.8404638171195984,
+        "detection_categories": {
+          "laptop": 42,
+          "tv": 41,
+          "keyboard": 41,
+          "mouse": 3
+        },
+        "frames_with_detections": 41,
+        "total_frames_processed": 42
+      },
+      {
+        "total_detections": 130,
+        "avg_confidence": 0.8188265760739645,
+        "detection_categories": {
+          "laptop": 43,
+          "tv": 42,
+          "keyboard": 42,
+          "mouse": 3
+        },
+        "frames_with_detections": 42,
+        "total_frames_processed": 43
+      },
+      {
+        "total_detections": 133,
+        "avg_confidence": 0.81198517481486,
+        "detection_categories": {
+          "laptop": 44,
+          "tv": 43,
+          "keyboard": 43,
+          "mouse": 3
+        },
+        "frames_with_detections": 43,
+        "total_frames_processed": 44
+      },
+      {
+        "total_detections": 136,
+        "avg_confidence": 0.8222968180974325,
+        "detection_categories": {
+          "laptop": 45,
+          "tv": 44,
+          "keyboard": 44,
+          "mouse": 3
+        },
+        "frames_with_detections": 44,
+        "total_frames_processed": 45
+      },
+      {
+        "total_detections": 139,
+        "avg_confidence": 0.8300089041392008,
+        "detection_categories": {
+          "laptop": 46,
+          "tv": 45,
+          "keyboard": 45,
+          "mouse": 3
+        },
+        "frames_with_detections": 45,
+        "total_frames_processed": 46
+      },
+      {
+        "total_detections": 142,
+        "avg_confidence": 0.8331854343414307,
+        "detection_categories": {
+          "laptop": 47,
+          "tv": 46,
+          "keyboard": 46,
+          "mouse": 3
+        },
+        "frames_with_detections": 46,
+        "total_frames_processed": 47
+      },
+      {
+        "total_detections": 145,
+        "avg_confidence": 0.8295261859893799,
+        "detection_categories": {
+          "laptop": 48,
+          "tv": 47,
+          "keyboard": 47,
+          "mouse": 3
+        },
+        "frames_with_detections": 47,
+        "total_frames_processed": 48
+      },
+      {
+        "total_detections": 148,
+        "avg_confidence": 0.8183125654856364,
+        "detection_categories": {
+          "laptop": 49,
+          "tv": 48,
+          "keyboard": 48,
+          "mouse": 3
+        },
+        "frames_with_detections": 48,
+        "total_frames_processed": 49
+      },
+      {
+        "total_detections": 151,
+        "avg_confidence": 0.8178115884462992,
+        "detection_categories": {
+          "laptop": 50,
+          "tv": 49,
+          "keyboard": 49,
+          "mouse": 3
+        },
+        "frames_with_detections": 49,
+        "total_frames_processed": 50
+      },
+      {
+        "total_detections": 154,
+        "avg_confidence": 0.8079814314842224,
+        "detection_categories": {
+          "laptop": 51,
+          "tv": 50,
+          "keyboard": 50,
+          "mouse": 3
+        },
+        "frames_with_detections": 50,
+        "total_frames_processed": 51
+      },
+      {
+        "total_detections": 157,
+        "avg_confidence": 0.8144195278485616,
+        "detection_categories": {
+          "laptop": 52,
+          "tv": 51,
+          "keyboard": 51,
+          "mouse": 3
+        },
+        "frames_with_detections": 51,
+        "total_frames_processed": 52
+      },
+      {
+        "total_detections": 160,
+        "avg_confidence": 0.8271323243776957,
+        "detection_categories": {
+          "laptop": 53,
+          "tv": 52,
+          "keyboard": 52,
+          "mouse": 3
+        },
+        "frames_with_detections": 52,
+        "total_frames_processed": 53
+      },
+      {
+        "total_detections": 163,
+        "avg_confidence": 0.8032340606053671,
+        "detection_categories": {
+          "laptop": 54,
+          "tv": 53,
+          "keyboard": 53,
+          "mouse": 3
+        },
+        "frames_with_detections": 53,
+        "total_frames_processed": 54
+      },
+      {
+        "total_detections": 166,
+        "avg_confidence": 0.8166021108627319,
+        "detection_categories": {
+          "laptop": 55,
+          "tv": 54,
+          "keyboard": 54,
+          "mouse": 3
+        },
+        "frames_with_detections": 54,
+        "total_frames_processed": 55
+      },
+      {
+        "total_detections": 169,
+        "avg_confidence": 0.7986990809440613,
+        "detection_categories": {
+          "laptop": 56,
+          "tv": 55,
+          "keyboard": 55,
+          "mouse": 3
+        },
+        "frames_with_detections": 55,
+        "total_frames_processed": 56
+      },
+      {
+        "total_detections": 172,
+        "avg_confidence": 0.7958021561304728,
+        "detection_categories": {
+          "laptop": 57,
+          "tv": 56,
+          "keyboard": 56,
+          "mouse": 3
+        },
+        "frames_with_detections": 56,
+        "total_frames_processed": 57
+      },
+      {
+        "total_detections": 175,
+        "avg_confidence": 0.8096780379613241,
+        "detection_categories": {
+          "laptop": 58,
+          "tv": 57,
+          "keyboard": 57,
+          "mouse": 3
+        },
+        "frames_with_detections": 57,
+        "total_frames_processed": 58
+      },
+      {
+        "total_detections": 178,
+        "avg_confidence": 0.8135117491086324,
+        "detection_categories": {
+          "laptop": 59,
+          "tv": 58,
+          "keyboard": 58,
+          "mouse": 3
+        },
+        "frames_with_detections": 58,
+        "total_frames_processed": 59
+      },
+      {
+        "total_detections": 181,
+        "avg_confidence": 0.7896567185719808,
+        "detection_categories": {
+          "laptop": 60,
+          "tv": 59,
+          "keyboard": 59,
+          "mouse": 3
+        },
+        "frames_with_detections": 59,
+        "total_frames_processed": 60
+      },
+      {
+        "total_detections": 184,
+        "avg_confidence": 0.8147289951642355,
+        "detection_categories": {
+          "laptop": 61,
+          "tv": 60,
+          "keyboard": 60,
+          "mouse": 3
+        },
+        "frames_with_detections": 60,
+        "total_frames_processed": 61
+      },
+      {
+        "total_detections": 187,
+        "avg_confidence": 0.808994710445404,
+        "detection_categories": {
+          "laptop": 62,
+          "tv": 61,
+          "keyboard": 61,
+          "mouse": 3
+        },
+        "frames_with_detections": 61,
+        "total_frames_processed": 62
+      },
+      {
+        "total_detections": 190,
+        "avg_confidence": 0.8241570194562277,
+        "detection_categories": {
+          "laptop": 63,
+          "tv": 62,
+          "keyboard": 62,
+          "mouse": 3
+        },
+        "frames_with_detections": 62,
+        "total_frames_processed": 63
+      },
+      {
+        "total_detections": 193,
+        "avg_confidence": 0.751934826374054,
+        "detection_categories": {
+          "laptop": 65,
+          "tv": 63,
+          "keyboard": 62,
+          "mouse": 3
+        },
+        "frames_with_detections": 63,
+        "total_frames_processed": 64
+      },
+      {
+        "total_detections": 196,
+        "avg_confidence": 0.7222988804181417,
+        "detection_categories": {
+          "laptop": 67,
+          "tv": 64,
+          "keyboard": 62,
+          "mouse": 3
+        },
+        "frames_with_detections": 64,
+        "total_frames_processed": 65
+      },
+      {
+        "total_detections": 200,
+        "avg_confidence": 0.687059685587883,
+        "detection_categories": {
+          "laptop": 69,
+          "tv": 65,
+          "keyboard": 63,
+          "mouse": 3
+        },
+        "frames_with_detections": 65,
+        "total_frames_processed": 66
+      },
+      {
+        "total_detections": 204,
+        "avg_confidence": 0.6914907395839691,
+        "detection_categories": {
+          "laptop": 71,
+          "tv": 66,
+          "keyboard": 64,
+          "mouse": 3
+        },
+        "frames_with_detections": 66,
+        "total_frames_processed": 67
+      },
+      {
+        "total_detections": 207,
+        "avg_confidence": 0.7616172432899475,
+        "detection_categories": {
+          "laptop": 72,
+          "tv": 67,
+          "keyboard": 65,
+          "mouse": 3
+        },
+        "frames_with_detections": 67,
+        "total_frames_processed": 68
+      },
+      {
+        "total_detections": 211,
+        "avg_confidence": 0.70908322930336,
+        "detection_categories": {
+          "laptop": 74,
+          "tv": 68,
+          "keyboard": 66,
+          "mouse": 3
+        },
+        "frames_with_detections": 68,
+        "total_frames_processed": 69
+      },
+      {
+        "total_detections": 215,
+        "avg_confidence": 0.6755700260400772,
+        "detection_categories": {
+          "laptop": 76,
+          "tv": 69,
+          "keyboard": 67,
+          "mouse": 3
+        },
+        "frames_with_detections": 69,
+        "total_frames_processed": 70
+      },
+      {
+        "total_detections": 219,
+        "avg_confidence": 0.6794805526733398,
+        "detection_categories": {
+          "laptop": 78,
+          "tv": 70,
+          "keyboard": 68,
+          "mouse": 3
+        },
+        "frames_with_detections": 70,
+        "total_frames_processed": 71
+      },
+      {
+        "total_detections": 222,
+        "avg_confidence": 0.7232670982678732,
+        "detection_categories": {
+          "laptop": 79,
+          "tv": 71,
+          "keyboard": 69,
+          "mouse": 3
+        },
+        "frames_with_detections": 71,
+        "total_frames_processed": 72
+      },
+      {
+        "total_detections": 225,
+        "avg_confidence": 0.8457534909248352,
+        "detection_categories": {
+          "laptop": 80,
+          "tv": 72,
+          "keyboard": 70,
+          "mouse": 3
+        },
+        "frames_with_detections": 72,
+        "total_frames_processed": 73
+      },
+      {
+        "total_detections": 226,
+        "avg_confidence": 0.7806411981582642,
+        "detection_categories": {
+          "laptop": 81,
+          "tv": 72,
+          "keyboard": 70,
+          "mouse": 3
+        },
+        "frames_with_detections": 73,
+        "total_frames_processed": 74
+      },
+      {
+        "total_detections": 231,
+        "avg_confidence": 0.7428223490715027,
+        "detection_categories": {
+          "laptop": 82,
+          "tv": 73,
+          "keyboard": 71,
+          "mouse": 5
+        },
+        "frames_with_detections": 74,
+        "total_frames_processed": 75
+      },
+      {
+        "total_detections": 237,
+        "avg_confidence": 0.7428647577762604,
+        "detection_categories": {
+          "laptop": 83,
+          "tv": 74,
+          "keyboard": 72,
+          "mouse": 7,
+          "person": 1
+        },
+        "frames_with_detections": 75,
+        "total_frames_processed": 76
+      },
+      {
+        "total_detections": 242,
+        "avg_confidence": 0.7201349258422851,
+        "detection_categories": {
+          "laptop": 84,
+          "tv": 75,
+          "keyboard": 73,
+          "mouse": 8,
+          "person": 2
+        },
+        "frames_with_detections": 76,
+        "total_frames_processed": 77
+      },
+      {
+        "total_detections": 247,
+        "avg_confidence": 0.7877224206924438,
+        "detection_categories": {
+          "laptop": 85,
+          "tv": 76,
+          "keyboard": 74,
+          "mouse": 9,
+          "person": 3
+        },
+        "frames_with_detections": 77,
+        "total_frames_processed": 78
+      },
+      {
+        "total_detections": 252,
+        "avg_confidence": 0.8169281363487244,
+        "detection_categories": {
+          "laptop": 86,
+          "tv": 77,
+          "keyboard": 75,
+          "mouse": 10,
+          "person": 4
+        },
+        "frames_with_detections": 78,
+        "total_frames_processed": 79
+      },
+      {
+        "total_detections": 257,
+        "avg_confidence": 0.8122325539588928,
+        "detection_categories": {
+          "laptop": 87,
+          "tv": 78,
+          "keyboard": 76,
+          "mouse": 11,
+          "person": 5
+        },
+        "frames_with_detections": 79,
+        "total_frames_processed": 80
+      },
+      {
+        "total_detections": 262,
+        "avg_confidence": 0.8179672002792359,
+        "detection_categories": {
+          "laptop": 88,
+          "tv": 79,
+          "keyboard": 77,
+          "mouse": 12,
+          "person": 6
+        },
+        "frames_with_detections": 80,
+        "total_frames_processed": 81
+      },
+      {
+        "total_detections": 267,
+        "avg_confidence": 0.8218361735343933,
+        "detection_categories": {
+          "laptop": 89,
+          "tv": 80,
+          "keyboard": 78,
+          "mouse": 13,
+          "person": 7
+        },
+        "frames_with_detections": 81,
+        "total_frames_processed": 82
+      },
+      {
+        "total_detections": 272,
+        "avg_confidence": 0.824715769290924,
+        "detection_categories": {
+          "laptop": 90,
+          "tv": 81,
+          "keyboard": 79,
+          "mouse": 14,
+          "person": 8
+        },
+        "frames_with_detections": 82,
+        "total_frames_processed": 83
+      },
+      {
+        "total_detections": 277,
+        "avg_confidence": 0.8231988191604614,
+        "detection_categories": {
+          "laptop": 91,
+          "tv": 82,
+          "keyboard": 80,
+          "mouse": 15,
+          "person": 9
+        },
+        "frames_with_detections": 83,
+        "total_frames_processed": 84
+      },
+      {
+        "total_detections": 282,
+        "avg_confidence": 0.8196834206581116,
+        "detection_categories": {
+          "laptop": 92,
+          "tv": 83,
+          "keyboard": 81,
+          "mouse": 16,
+          "person": 10
+        },
+        "frames_with_detections": 84,
+        "total_frames_processed": 85
+      },
+      {
+        "total_detections": 287,
+        "avg_confidence": 0.8252271771430969,
+        "detection_categories": {
+          "laptop": 93,
+          "tv": 84,
+          "keyboard": 82,
+          "mouse": 17,
+          "person": 11
+        },
+        "frames_with_detections": 85,
+        "total_frames_processed": 86
+      },
+      {
+        "total_detections": 292,
+        "avg_confidence": 0.8377935290336609,
+        "detection_categories": {
+          "laptop": 94,
+          "tv": 85,
+          "keyboard": 83,
+          "mouse": 18,
+          "person": 12
+        },
+        "frames_with_detections": 86,
+        "total_frames_processed": 87
+      },
+      {
+        "total_detections": 297,
+        "avg_confidence": 0.8139388561248779,
+        "detection_categories": {
+          "laptop": 95,
+          "tv": 86,
+          "keyboard": 84,
+          "mouse": 19,
+          "person": 13
+        },
+        "frames_with_detections": 87,
+        "total_frames_processed": 88
+      },
+      {
+        "total_detections": 302,
+        "avg_confidence": 0.781315803527832,
+        "detection_categories": {
+          "laptop": 96,
+          "tv": 87,
+          "keyboard": 85,
+          "mouse": 20,
+          "person": 14
+        },
+        "frames_with_detections": 88,
+        "total_frames_processed": 89
+      },
+      {
+        "total_detections": 307,
+        "avg_confidence": 0.7712132573127747,
+        "detection_categories": {
+          "laptop": 97,
+          "tv": 88,
+          "keyboard": 86,
+          "mouse": 21,
+          "person": 15
+        },
+        "frames_with_detections": 89,
+        "total_frames_processed": 90
+      },
+      {
+        "total_detections": 313,
+        "avg_confidence": 0.7173444728056589,
+        "detection_categories": {
+          "laptop": 98,
+          "tv": 89,
+          "keyboard": 87,
+          "mouse": 23,
+          "person": 16
+        },
+        "frames_with_detections": 90,
+        "total_frames_processed": 91
+      },
+      {
+        "total_detections": 318,
+        "avg_confidence": 0.7717017531394958,
+        "detection_categories": {
+          "laptop": 99,
+          "tv": 90,
+          "keyboard": 88,
+          "mouse": 24,
+          "person": 17
+        },
+        "frames_with_detections": 91,
+        "total_frames_processed": 92
+      },
+      {
+        "total_detections": 323,
+        "avg_confidence": 0.7968517184257508,
+        "detection_categories": {
+          "laptop": 100,
+          "tv": 91,
+          "keyboard": 89,
+          "mouse": 25,
+          "person": 18
+        },
+        "frames_with_detections": 92,
+        "total_frames_processed": 93
+      },
+      {
+        "total_detections": 328,
+        "avg_confidence": 0.783423662185669,
+        "detection_categories": {
+          "laptop": 101,
+          "tv": 92,
+          "keyboard": 90,
+          "mouse": 26,
+          "person": 19
+        },
+        "frames_with_detections": 93,
+        "total_frames_processed": 94
+      },
+      {
+        "total_detections": 333,
+        "avg_confidence": 0.7663750410079956,
+        "detection_categories": {
+          "laptop": 102,
+          "tv": 93,
+          "keyboard": 91,
+          "mouse": 27,
+          "person": 20
+        },
+        "frames_with_detections": 94,
+        "total_frames_processed": 95
+      },
+      {
+        "total_detections": 338,
+        "avg_confidence": 0.7609971165657043,
+        "detection_categories": {
+          "laptop": 103,
+          "tv": 94,
+          "keyboard": 92,
+          "mouse": 28,
+          "person": 21
+        },
+        "frames_with_detections": 95,
+        "total_frames_processed": 96
+      },
+      {
+        "total_detections": 343,
+        "avg_confidence": 0.7320379495620728,
+        "detection_categories": {
+          "laptop": 104,
+          "tv": 95,
+          "keyboard": 93,
+          "mouse": 29,
+          "person": 22
+        },
+        "frames_with_detections": 96,
+        "total_frames_processed": 97
+      },
+      {
+        "total_detections": 347,
+        "avg_confidence": 0.7926776707172394,
+        "detection_categories": {
+          "laptop": 105,
+          "tv": 96,
+          "keyboard": 94,
+          "mouse": 29,
+          "person": 23
+        },
+        "frames_with_detections": 97,
+        "total_frames_processed": 98
+      },
+      {
+        "total_detections": 352,
+        "avg_confidence": 0.7834969997406006,
+        "detection_categories": {
+          "laptop": 106,
+          "tv": 97,
+          "keyboard": 95,
+          "mouse": 30,
+          "person": 24
+        },
+        "frames_with_detections": 98,
+        "total_frames_processed": 99
+      },
+      {
+        "total_detections": 357,
+        "avg_confidence": 0.8049131035804749,
+        "detection_categories": {
+          "laptop": 107,
+          "tv": 98,
+          "keyboard": 96,
+          "mouse": 31,
+          "person": 25
+        },
+        "frames_with_detections": 99,
+        "total_frames_processed": 100
+      },
+      {
+        "total_detections": 362,
+        "avg_confidence": 0.8216269850730896,
+        "detection_categories": {
+          "laptop": 108,
+          "tv": 99,
+          "keyboard": 97,
+          "mouse": 32,
+          "person": 26
+        },
+        "frames_with_detections": 100,
+        "total_frames_processed": 101
+      },
+      {
+        "total_detections": 367,
+        "avg_confidence": 0.8344804763793945,
+        "detection_categories": {
+          "laptop": 109,
+          "tv": 100,
+          "keyboard": 98,
+          "mouse": 33,
+          "person": 27
+        },
+        "frames_with_detections": 101,
+        "total_frames_processed": 102
+      },
+      {
+        "total_detections": 372,
+        "avg_confidence": 0.8039314389228821,
+        "detection_categories": {
+          "laptop": 110,
+          "tv": 101,
+          "keyboard": 99,
+          "mouse": 34,
+          "person": 28
+        },
+        "frames_with_detections": 102,
+        "total_frames_processed": 103
+      },
+      {
+        "total_detections": 377,
+        "avg_confidence": 0.7424986243247986,
+        "detection_categories": {
+          "laptop": 111,
+          "tv": 102,
+          "keyboard": 100,
+          "mouse": 35,
+          "person": 29
+        },
+        "frames_with_detections": 103,
+        "total_frames_processed": 104
+      },
+      {
+        "total_detections": 381,
+        "avg_confidence": 0.7636500746011734,
+        "detection_categories": {
+          "laptop": 112,
+          "tv": 103,
+          "keyboard": 101,
+          "mouse": 35,
+          "person": 30
+        },
+        "frames_with_detections": 104,
+        "total_frames_processed": 105
+      },
+      {
+        "total_detections": 384,
+        "avg_confidence": 0.8480556607246399,
+        "detection_categories": {
+          "laptop": 113,
+          "tv": 104,
+          "keyboard": 102,
+          "mouse": 35,
+          "person": 30
+        },
+        "frames_with_detections": 105,
+        "total_frames_processed": 106
+      },
+      {
+        "total_detections": 387,
+        "avg_confidence": 0.8239262898763021,
+        "detection_categories": {
+          "laptop": 114,
+          "tv": 105,
+          "keyboard": 103,
+          "mouse": 35,
+          "person": 30
+        },
+        "frames_with_detections": 106,
+        "total_frames_processed": 107
+      }
+    ]
+  }
+}
