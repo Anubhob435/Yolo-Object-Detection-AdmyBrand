@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Preview Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        #video-container {
+            margin: 20px auto;
+            max-width: 90vw;
+            background: #333;
+            border: 2px solid #555;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #000;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+        
+        #info {
+            background: #333;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 90vw;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .error { color: #ff6b6b; }
+        .success { color: #51cf66; }
+        .warning { color: #ffd43b; }
+    </style>
+</head>
+<body>
+    <h1>📹 Camera Preview Test</h1>
+    <p>This page tests basic camera access without WebRTC complexity</p>
+    
+    <div>
+        <button id="startCamera">Start Camera</button>
+        <button id="stopCamera" disabled>Stop Camera</button>
+        <button id="switchCamera" disabled>Switch Camera</button>
+    </div>
+    
+    <div id="video-container">
+        <video id="cameraVideo" autoplay playsinline muted></video>
+    </div>
+    
+    <div id="info">
+        <div><strong>Status:</strong> <span id="status">Ready</span></div>
+        <div><strong>Camera:</strong> <span id="cameraInfo">None</span></div>
+        <div><strong>Video:</strong> <span id="videoInfo">None</span></div>
+        <div><strong>Browser:</strong> <span id="browserInfo"></span></div>
+        <div><strong>Errors:</strong> <span id="errors">None</span></div>
+    </div>
+
+    <script>
+        const video = document.getElementById('cameraVideo');
+        const startBtn = document.getElementById('startCamera');
+        const stopBtn = document.getElementById('stopCamera');
+        const switchBtn = document.getElementById('switchCamera');
+        
+        const statusEl = document.getElementById('status');
+        const cameraInfoEl = document.getElementById('cameraInfo');
+        const videoInfoEl = document.getElementById('videoInfo');
+        const browserInfoEl = document.getElementById('browserInfo');
+        const errorsEl = document.getElementById('errors');
+        
+        let currentStream = null;
+        let currentFacingMode = 'environment'; // Start with rear camera
+        
+        // Display browser info
+        browserInfoEl.textContent = navigator.userAgent.includes('Mobile') ? 'Mobile' : 'Desktop';
+        
+        function updateStatus(message, type = 'info') {
+            statusEl.textContent = message;
+            statusEl.className = type;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+        
+        function updateCameraInfo(stream) {
+            if (stream) {
+                const tracks = stream.getVideoTracks();
+                if (tracks.length > 0) {
+                    const settings = tracks[0].getSettings();
+                    cameraInfoEl.textContent = `${settings.width}x${settings.height}, Facing: ${settings.facingMode || 'unknown'}`;
+                }
+            } else {
+                cameraInfoEl.textContent = 'None';
+            }
+        }
+        
+        function updateVideoInfo() {
+            if (video.videoWidth && video.videoHeight) {
+                videoInfoEl.textContent = `${video.videoWidth}x${video.videoHeight}, Ready: ${video.readyState}/4`;
+            } else {
+                videoInfoEl.textContent = 'Loading...';
+            }
+        }
+        
+        function showError(message) {
+            errorsEl.textContent = message;
+            errorsEl.className = 'error';
+            updateStatus(message, 'error');
+        }
+        
+        async function startCamera() {
+            try {
+                updateStatus('Requesting camera access...', 'warning');
+                errorsEl.textContent = 'None';
+                errorsEl.className = '';
+                
+                // Stop any existing stream
+                if (currentStream) {
+                    currentStream.getTracks().forEach(track => track.stop());
+                }
+                
+                const constraints = {
+                    video: {
+                        facingMode: currentFacingMode,
+                        width: { ideal: 1280, min: 640 },
+                        height: { ideal: 720, min: 480 }
+                    }
+                };
+                
+                console.log('Requesting camera with constraints:', constraints);
+                currentStream = await navigator.mediaDevices.getUserMedia(constraints);
+                
+                updateStatus('Camera access granted', 'success');
+                updateCameraInfo(currentStream);
+                
+                // Set video source
+                video.srcObject = currentStream;
+                
+                // Wait for video metadata
+                video.onloadedmetadata = () => {
+                    updateStatus('Video metadata loaded', 'success');
+                    updateVideoInfo();
+                };
+                
+                video.oncanplay = () => {
+                    updateStatus('Video ready to play', 'success');
+                    updateVideoInfo();
+                };
+                
+                video.onplay = () => {
+                    updateStatus('Video playing', 'success');
+                    updateVideoInfo();
+                };
+                
+                video.onerror = (e) => {
+                    showError(`Video error: ${e.message || 'Unknown error'}`);
+                };
+                
+                // Force play
+                try {
+                    await video.play();
+                    updateStatus('Video started successfully', 'success');
+                } catch (playError) {
+                    // Try without sound
+                    video.muted = true;
+                    try {
+                        await video.play();
+                        updateStatus('Video started (muted)', 'success');
+                    } catch (e) {
+                        showError(`Could not start video: ${e.message}`);
+                    }
+                }
+                
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                switchBtn.disabled = false;
+                
+            } catch (error) {
+                console.error('Camera error:', error);
+                let errorMessage = error.message;
+                
+                if (error.name === 'NotAllowedError') {
+                    errorMessage = 'Camera permission denied. Please allow camera access and try again.';
+                } else if (error.name === 'NotFoundError') {
+                    errorMessage = 'No camera found on this device.';
+                } else if (error.name === 'NotReadableError') {
+                    errorMessage = 'Camera is being used by another application.';
+                } else if (error.name === 'OverconstrainedError') {
+                    errorMessage = 'Camera does not support the requested settings.';
+                }
+                
+                showError(errorMessage);
+            }
+        }
+        
+        function stopCamera() {
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+                currentStream = null;
+            }
+            
+            video.srcObject = null;
+            updateStatus('Camera stopped');
+            updateCameraInfo(null);
+            videoInfoEl.textContent = 'None';
+            
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            switchBtn.disabled = true;
+        }
+        
+        function switchCamera() {
+            currentFacingMode = currentFacingMode === 'environment' ? 'user' : 'environment';
+            if (currentStream) {
+                startCamera(); // Restart with new facing mode
+            }
+        }
+        
+        startBtn.addEventListener('click', startCamera);
+        stopBtn.addEventListener('click', stopCamera);
+        switchBtn.addEventListener('click', switchCamera);
+        
+        // Auto-start on mobile
+        if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            updateStatus('Mobile device detected - tap Start Camera', 'warning');
+        }
+        
+        // Debug info
+        console.log('User Agent:', navigator.userAgent);
+        console.log('MediaDevices supported:', !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia));
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Object Detection Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #container {
+            position: relative;
+            width: 90vw;
+            max-width: 640px;
+            margin-top: 20px;
+            border: 3px solid #3498db;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background-color: #34495e;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: #34495e;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #debug {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #34495e;
+            border-radius: 5px;
+            width: 90vw;
+            max-width: 640px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        button:disabled {
+            background-color: #7f8c8d;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebRTC Camera Debug</h1>
+    
+    <div id="container">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+    </div>
+    
+    <div>
+        <button id="start-btn">Start Camera</button>
+        <button id="stop-btn" disabled>Stop Camera</button>
+    </div>
+    
+    <div id="debug">
+        <h3>Debug Info:</h3>
+        <div id="status">Ready</div>
+        <div id="video-info"></div>
+        <div id="stream-info"></div>
+    </div>
+
+    <script>
+        const video = document.getElementById('webcam');
+        const canvas = document.getElementById('overlay');
+        const ctx = canvas.getContext('2d');
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const status = document.getElementById('status');
+        const videoInfo = document.getElementById('video-info');
+        const streamInfo = document.getElementById('stream-info');
+
+        let stream = null;
+
+        function updateStatus(message) {
+            status.textContent = `Status: ${message}`;
+            console.log(message);
+        }
+
+        function updateVideoInfo() {
+            if (video.videoWidth && video.videoHeight) {
+                videoInfo.textContent = `Video: ${video.videoWidth}x${video.videoHeight}, Ready: ${video.readyState}`;
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+            }
+        }
+
+        function updateStreamInfo() {
+            if (stream) {
+                const tracks = stream.getVideoTracks();
+                if (tracks.length > 0) {
+                    const track = tracks[0];
+                    const settings = track.getSettings();
+                    streamInfo.textContent = `Stream: ${settings.width}x${settings.height}, State: ${track.readyState}`;
+                }
+            }
+        }
+
+        async function startCamera() {
+            try {
+                updateStatus("Requesting camera access...");
+                
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { 
+                        facingMode: 'environment',
+                        width: { ideal: 640 }, 
+                        height: { ideal: 480 } 
+                    }
+                });
+                
+                updateStatus("Camera stream obtained");
+                updateStreamInfo();
+                
+                video.srcObject = stream;
+                
+                video.onloadedmetadata = () => {
+                    updateStatus("Video metadata loaded");
+                    updateVideoInfo();
+                };
+                
+                video.oncanplay = () => {
+                    updateStatus("Video can play");
+                    updateVideoInfo();
+                };
+                
+                video.onplay = () => {
+                    updateStatus("Video is playing");
+                    updateVideoInfo();
+                };
+                
+                video.onerror = (e) => {
+                    updateStatus(`Video error: ${e.message || 'Unknown error'}`);
+                    console.error('Video error:', e);
+                };
+                
+                // Force play
+                try {
+                    await video.play();
+                    updateStatus("Video play() called successfully");
+                } catch (e) {
+                    updateStatus(`Video play() failed: ${e.message}`);
+                    console.error('Play error:', e);
+                }
+                
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                
+            } catch (error) {
+                updateStatus(`Camera error: ${error.message}`);
+                console.error('Camera error:', error);
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            video.srcObject = null;
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            updateStatus("Camera stopped");
+            videoInfo.textContent = "";
+            streamInfo.textContent = "";
+        }
+
+        startBtn.addEventListener('click', startCamera);
+        stopBtn.addEventListener('click', stopCamera);
+
+        // Auto-start for mobile
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            setTimeout(startCamera, 1000);
+        }
+    </script>
+</body>
+</html>

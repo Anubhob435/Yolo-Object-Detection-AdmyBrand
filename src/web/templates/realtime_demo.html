@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Object Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        
+        #container {
+            position: relative;
+            display: inline-block;
+            max-width: 90vw;
+            max-height: 70vh;
+            margin: 20px auto;
+        }
+        
+        #webcam {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,255,0,0.3);
+        }
+        
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        #controls {
+            margin: 20px;
+        }
+        
+        button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #start-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        #start-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+        
+        #stop-btn {
+            background: #f44336;
+            color: white;
+        }
+        
+        #stop-btn:hover {
+            background: #da190b;
+            transform: scale(1.05);
+        }
+        
+        #stop-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        #status {
+            margin: 20px;
+            padding: 15px;
+            background: #333;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .connected {
+            color: #4CAF50;
+        }
+        
+        .detecting {
+            color: #ff9800;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        #detections {
+            margin: 20px;
+            padding: 15px;
+            background: #333;
+            border-radius: 10px;
+            text-align: left;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .detection-item {
+            padding: 5px;
+            margin: 5px 0;
+            background: #444;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        h1 {
+            color: #4CAF50;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+        
+        #fps {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: #4CAF50;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Real-Time Object Detection</h1>
+    <div id="container">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+        <div id="fps">FPS: 0</div>
+    </div>
+    <div id="controls">
+        <button id="start-btn">📹 Start Camera</button>
+        <button id="stop-btn" disabled>⏹️ Stop Camera</button>
+    </div>
+    <div id="status">Ready to detect objects...</div>
+    <div id="detections">
+        <strong>🔍 Detected Objects:</strong>
+        <div id="detection-list">No objects detected yet</div>
+    </div>
+    
+    <script>
+        let pc;
+        let localStream;
+        let detectionCanvas;
+        let detectionCtx;
+        let isDetecting = false;
+        let ws; // WebSocket for real-time detection data
+        let frameCount = 0;
+        let lastFpsUpdate = Date.now();
+        
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const status = document.getElementById('status');
+        const webcam = document.getElementById('webcam');
+        const overlay = document.getElementById('overlay');
+        const detectionList = document.getElementById('detection-list');
+        const fpsDisplay = document.getElementById('fps');
+        
+        // Initialize canvas overlay
+        function initCanvas() {
+            detectionCanvas = overlay;
+            detectionCtx = detectionCanvas.getContext('2d');
+            
+            // Match canvas size to video
+            webcam.addEventListener('loadedmetadata', () => {
+                detectionCanvas.width = webcam.videoWidth;
+                detectionCanvas.height = webcam.videoHeight;
+            });
+            
+            // Resize canvas when window resizes
+            window.addEventListener('resize', () => {
+                if (webcam.videoWidth && webcam.videoHeight) {
+                    detectionCanvas.width = webcam.videoWidth;
+                    detectionCanvas.height = webcam.videoHeight;
+                }
+            });
+        }
+        
+        // Initialize WebSocket for detection data
+        function initWebSocket() {
+            const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            ws = new WebSocket(`${protocol}//${location.host}/detection-stream`);
+            
+            ws.onopen = () => {
+                console.log('Detection WebSocket connected');
+            };
+            
+            ws.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.detections) {
+                        drawDetections(data.detections);
+                        updateFPS();
+                    }
+                } catch (error) {
+                    console.error('Error parsing detection data:', error);
+                }
+            };
+            
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+            
+            ws.onclose = () => {
+                console.log('Detection WebSocket closed');
+            };
+        }
+        
+        // Update FPS display
+        function updateFPS() {
+            frameCount++;
+            const now = Date.now();
+            if (now - lastFpsUpdate >= 1000) {
+                const fps = Math.round(frameCount * 1000 / (now - lastFpsUpdate));
+                fpsDisplay.textContent = `FPS: ${fps}`;
+                frameCount = 0;
+                lastFpsUpdate = now;
+            }
+        }
+        
+        // Draw detection boxes and labels
+        function drawDetections(detections) {
+            if (!detectionCtx || !webcam.videoWidth) return;
+            
+            // Clear previous drawings
+            detectionCtx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
+            
+            // Update detection list
+            if (detections && detections.length > 0) {
+                detectionList.innerHTML = detections.map(det => 
+                    `<div class="detection-item">
+                        ${det.class}: ${(det.confidence * 100).toFixed(1)}%
+                    </div>`
+                ).join('');
+                
+                // Draw boxes and labels
+                detections.forEach(detection => {
+                    const { x1, y1, x2, y2, class: className, confidence } = detection;
+                    
+                    // Scale coordinates to canvas size
+                    const scaleX = detectionCanvas.width / webcam.videoWidth;
+                    const scaleY = detectionCanvas.height / webcam.videoHeight;
+                    
+                    const scaledX1 = x1 * scaleX;
+                    const scaledY1 = y1 * scaleY;
+                    const scaledX2 = x2 * scaleX;
+                    const scaledY2 = y2 * scaleY;
+                    
+                    // Draw bounding box
+                    detectionCtx.strokeStyle = '#00ff00';
+                    detectionCtx.lineWidth = 3;
+                    detectionCtx.strokeRect(
+                        scaledX1, 
+                        scaledY1, 
+                        scaledX2 - scaledX1, 
+                        scaledY2 - scaledY1
+                    );
+                    
+                    // Draw label background
+                    const label = `${className} ${(confidence * 100).toFixed(0)}%`;
+                    detectionCtx.font = '16px Arial';
+                    const textWidth = detectionCtx.measureText(label).width;
+                    
+                    detectionCtx.fillStyle = 'rgba(0, 255, 0, 0.8)';
+                    detectionCtx.fillRect(scaledX1, scaledY1 - 25, textWidth + 10, 25);
+                    
+                    // Draw label text
+                    detectionCtx.fillStyle = '#000';
+                    detectionCtx.fillText(label, scaledX1 + 5, scaledY1 - 5);
+                });
+            } else {
+                detectionList.innerHTML = 'No objects detected';
+            }
+        }
+        
+        // Start camera and detection
+        async function startCamera() {
+            try {
+                status.textContent = 'Starting camera...';
+                
+                localStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 640 },
+                        height: { ideal: 480 },
+                        facingMode: 'environment' // Use back camera on mobile
+                    } 
+                });
+                
+                webcam.srcObject = localStream;
+                
+                // Setup WebRTC
+                pc = new RTCPeerConnection({
+                    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+                });
+                
+                // Add local stream
+                localStream.getTracks().forEach(track => {
+                    pc.addTrack(track, localStream);
+                });
+                
+                // Create offer
+                const offer = await pc.createOffer();
+                await pc.setLocalDescription(offer);
+                
+                // Send offer to server
+                const response = await fetch('/offer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        sdp: offer.sdp,
+                        type: offer.type
+                    })
+                });
+                
+                const answer = await response.json();
+                await pc.setRemoteDescription(new RTCSessionDescription(answer));
+                
+                // Initialize WebSocket for detection data
+                initWebSocket();
+                
+                status.textContent = '🟢 Connected - Real-Time Detection Active';
+                status.className = 'detecting';
+                isDetecting = true;
+                
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                
+            } catch (error) {
+                console.error('Error starting camera:', error);
+                status.textContent = `❌ Error: ${error.message}`;
+            }
+        }
+        
+        function stopCamera() {
+            if (localStream) {
+                localStream.getTracks().forEach(track => track.stop());
+            }
+            if (pc) {
+                pc.close();
+            }
+            if (ws) {
+                ws.close();
+            }
+            
+            isDetecting = false;
+            status.textContent = 'Camera stopped';
+            status.className = '';
+            detectionList.innerHTML = 'No objects detected';
+            fpsDisplay.textContent = 'FPS: 0';
+            
+            if (detectionCtx) {
+                detectionCtx.clearRect(0, 0, detectionCanvas.width, detectionCanvas.height);
+            }
+            
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initCanvas();
+            startBtn.addEventListener('click', startCamera);
+            stopBtn.addEventListener('click', stopCamera);
+        });
+    </script>
+</body>
+</html>
