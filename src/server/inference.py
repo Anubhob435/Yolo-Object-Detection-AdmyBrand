@@ -193,10 +193,10 @@ class ObjectDetectionTrack(VideoStreamTrack):
             return frame
 
 async def index(request):
-    """Redirect root URL to metrics dashboard."""
+    """Redirect root URL to video stream page."""
     return web.Response(
         status=302,
-        headers={'Location': '/metrics/dashboard'}
+        headers={'Location': '/stream'}
     )
 
 async def javascript(request):
