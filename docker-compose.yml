@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  yolo-detection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yolo-object-detection
+    ports:
+      - "8443:8443"
+    volumes:
+      # Optional: Mount models directory for persistent model storage
+      - ./models:/app/models
+      # Optional: Mount logs directory
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - YOLO_MODEL_PATH=/app/models/yolov8n.pt
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8443/metrics"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - yolo-network
+
+networks:
+  yolo-network:
+    driver: bridge
