@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Video Stream - Object Detection</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,6 +20,16 @@
             margin-bottom: 30px;
             color: #00f5ff;
             text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
         }
         
         .container {
@@ -198,7 +209,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>📹 Live Video Stream from Mobile</h1>
+        <h1>
+            <img src="/web_logo.svg" alt="Logo" class="header-logo">
+            Live Video Stream from Mobile
+        </h1>
         
         <div class="info-card">
             <h3>📱 Setup Instructions:</h3>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebRTC Object Detection - Metrics Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -80,6 +81,20 @@
             text-align: center;
         }
 
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-logo {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.5));
+        }
+
         .header h1 {
             color: var(--text-primary);
             font-size: 3.5rem;
@@ -88,9 +103,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
             position: relative;
+            margin: 0;
         }
 
         .header h1::after {
@@ -622,7 +637,10 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <h1>📊 WebRTC Object Detection Metrics</h1>
+                <div class="header-title">
+                    <img src="/web_logo.svg" alt="Logo" class="header-logo">
+                    <h1>WebRTC Object Detection Metrics</h1>
+                </div>
                 <p>Real-time performance monitoring and comprehensive analytics</p>
             </div>
             

@@ -211,6 +211,31 @@ async def stylesheet(request):
     content = open(WEB_DIR / "static" / "css" / "style.css", "r", encoding='utf-8').read()
     return web.Response(content_type="text/css", text=content)
 
+async def logo(request):
+    """Serve the company logo SVG file"""
+    try:
+        with open(WEB_DIR / "static" / "images" / "web_logo.svg", "rb") as f:
+            content = f.read()
+        return web.Response(body=content, content_type="image/svg+xml")
+    except FileNotFoundError:
+        return web.Response(status=404)
+
+async def favicon(request):
+    """Serve the favicon ICO file"""
+    try:
+        with open(WEB_DIR / "static" / "images" / "favicon.ico", "rb") as f:
+            content = f.read()
+        return web.Response(
+            body=content, 
+            content_type="image/vnd.microsoft.icon",
+            headers={
+                "Cache-Control": "public, max-age=86400",  # Cache for 1 day
+                "Content-Length": str(len(content))
+            }
+        )
+    except FileNotFoundError:
+        return web.Response(status=404)
+
 async def offer(request):
     params = await request.json()
     offer = RTCSessionDescription(sdp=params["sdp"], type=params["type"])
@@ -533,6 +558,8 @@ app.router.add_get("/camera-test", camera_test)
 app.router.add_get("/client_server_inference.js", javascript)
 app.router.add_get("/client_metrics.js", client_metrics_js)
 app.router.add_get("/style.css", stylesheet)
+app.router.add_get("/web_logo.svg", logo)
+app.router.add_get("/favicon.ico", favicon)
 app.router.add_post("/offer", offer)
 # Metrics endpoints
 app.router.add_get("/metrics", metrics_api)
