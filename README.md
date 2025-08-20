@@ -1,178 +1,381 @@
-# WebRTC Real-Time Object Detection
+# 🎯 YOLO Object Detection - AdmyBrand
 
-This project implements real-time object detection over WebRTC using two different architectures:
+A comprehensive real-time object detection system with WebRTC streaming, live video processing, and advanced metrics collection. Features mobile camera streaming to desktop with real-time YOLO inference and modern dashboard interface.
 
-1. **Server-side inference** using Python with aiortc and YOLO
-2. **Client-side inference** using WebAssembly (WASM) with ONNX
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12+-green.svg)
+![License](https://img.shields.io/badge/license-MIT-yellow.svg)
+![Docker](https://img.shields.io/badge/docker-supported-blue.svg)
 
-## Project Structure
+## ✨ Features
 
-```
-webrtc-object-detection/
-├── src/
-│   ├── server/                  # Server-side components
-│   │   ├── signaling.py        # WebSocket signaling server
-│   │   └── inference.py        # Object detection inference server
-│   └── web/                    # Web frontend components
-│       ├── templates/          # HTML pages
-│       └── static/            # CSS, JavaScript assets
-├── models/                     # ML models (PyTorch & ONNX)
-├── scripts/                    # Utility scripts
-│   ├── run.py                 # Quick start launcher
-│   └── export_model.py        # Model export utility
-├── docs/                      # Documentation
-└── examples/                  # Example implementations
-```
+### 🎥 **Real-Time Video Processing**
+- **📱 Mobile to Desktop Streaming**: Stream mobile camera to PC browser with live object detection
+- **🔴 Live MJPEG Stream**: Real-time video streaming with detection overlays
+- **⚡ 480p Optimization**: Optimized resolution for better performance and battery life
+- **🎛️ Stream Controls**: Auto-refresh, manual refresh, and fullscreen viewing
 
-For detailed structure information, see [docs/STRUCTURE.md](docs/STRUCTURE.md).
+### 🧠 **AI-Powered Detection**
+- **🎯 YOLO Integration**: YOLOv8 model for accurate object detection
+- **📊 Real-Time Inference**: Live object detection with confidence scores
+- **🎨 Visual Overlays**: Green bounding boxes with labels and confidence percentages
+- **⚡ Performance Optimized**: Efficient processing for smooth real-time experience
 
-## Setup Instructions
+### 📊 **Comprehensive Metrics System**
+- **📈 7 Metric Categories**: Performance, network, detection, privacy, user interaction, system health, and custom metrics
+- **🔄 Real-Time Dashboard**: Live updating metrics with modern glass morphism design
+- **💾 Data Export**: JSON and CSV export capabilities for analysis
+- **📱 System Monitoring**: CPU, memory, GPU, and disk usage tracking
 
-### 1. Install Dependencies
+### 🌐 **Web Interface**
+- **📱 QR Code Integration**: Easy mobile access via QR codes
+- **🎨 Modern UI**: Glass morphism design with responsive layout
+- **🔧 Multiple Pages**: Stream viewer, metrics dashboard, camera test, and debug pages
+- **🌙 Dark Theme**: Professional dark interface with blue accent colors
 
-The project uses `uv` as the package manager. Dependencies are already installed.
+### 🐳 **Docker Support**
+- **📦 Complete Containerization**: Ready-to-deploy Docker image
+- **🔧 Docker Compose**: Easy deployment with docker-compose
+- **🚀 Build Scripts**: Automated build scripts for Windows, Linux, and macOS
+- **🏥 Health Checks**: Container monitoring and auto-restart capabilities
 
-### 2. Download YOLO Model
+## 🚀 Quick Start
 
-The YOLO model will be automatically downloaded when you first run the server:
+### Option 1: Docker (Recommended)
 
 ```bash
+# Clone the repository
+git clone https://github.com/Anubhob435/Yolo-Object-Detection-AdmyBrand.git
+cd Yolo-Object-Detection-AdmyBrand
+
+# Start with Docker Compose
+docker-compose up -d
+
+# Or build and run manually
+docker build -t yolo-object-detection .
+docker run -d -p 8443:8443 --name yolo-detection yolo-object-detection
+```
+
+### Option 2: Local Development
+
+```bash
+# Install UV package manager (if not installed)
+pip install uv
+
+# Install dependencies
+uv sync
+
+# Run the inference server
+uv run -m src.server.inference
+```
+
+## 🌐 Access Points
+
+Once running, access the application at:
+
+- **🏠 Home/Stream:** `https://localhost:8443/` - Live video stream viewer
+- **📱 Mobile Camera:** `https://192.168.0.89:8443/realtime` - Mobile camera interface
+- **📊 Metrics Dashboard:** `https://localhost:8443/metrics/dashboard` - Comprehensive metrics
+- **🔧 Debug Console:** `https://localhost:8443/debug` - Debug and testing interface
+
+## 📱 Mobile Setup
+
+1. **🔍 Scan QR Code**: Use the QR code displayed on the web interface
+2. **📱 Or Manual Access**: Navigate to `https://[YOUR_IP]:8443/realtime` on mobile
+3. **✅ Accept SSL Warning**: Accept the self-signed certificate
+4. **📹 Start Camera**: Click "Start Camera" to begin streaming
+5. **🖥️ View on Desktop**: Watch live stream with detection at `https://localhost:8443/`
+
+## 🏗️ Project Structure
+
+```
+Yolo-Object-Detection-AdmyBrand/
+├── 🐳 Docker Configuration
+│   ├── Dockerfile                 # Container definition
+│   ├── docker-compose.yml         # Easy deployment
+│   ├── .dockerignore              # Docker exclusions
+│   └── DOCKER.md                  # Docker documentation
+├── 📁 src/
+│   ├── server/                    # Backend services
+│   │   ├── inference.py           # Main server with WebRTC & streaming
+│   │   ├── signaling.py           # WebSocket signaling
+│   │   ├── metrics.py             # Metrics collection system
+│   │   ├── resources.py           # System resource monitoring
+│   │   └── interface.html         # Metrics dashboard UI
+│   └── web/                       # Frontend assets
+│       ├── templates/             # HTML pages
+│       │   ├── video_stream.html  # Live stream viewer
+│       │   ├── realtime_demo.html # Mobile camera interface
+│       │   ├── index.html         # Main landing page
+│       │   └── debug.html         # Debug console
+│       └── static/               # CSS, JavaScript assets
+├── 🎯 models/                     # AI models storage
+│   ├── yolov8n.pt               # PyTorch model
+│   └── yolov8n.onnx             # ONNX model (optional)
+├── 🔧 scripts/                   # Utility scripts
+│   ├── run.py                    # Quick launcher
+│   ├── export_model.py           # Model export utility
+│   ├── docker-entrypoint.sh      # Docker startup script
+│   ├── build-docker.sh/.bat      # Docker build scripts
+│   └── run-docker.sh/.bat        # Docker run scripts
+├── 🔐 certs/                     # SSL certificates
+│   ├── cert.pem                  # SSL certificate
+│   └── key.pem                   # SSL private key
+└── 📚 docs/                      # Documentation
+    ├── STRUCTURE.md              # Project structure
+    ├── CAMERA_TROUBLESHOOTING.md # Camera setup help
+    └── MOBILE_ACCESS.md          # Mobile access guide
+```
+
+## 🔧 Configuration
+
+### Performance Settings
+
+**Resolution Optimization:**
+- Default: 480p (854x480) for optimal performance
+- Maintains aspect ratio for different camera orientations
+- JPEG quality: 85% for size/quality balance
+
+**Detection Settings:**
+- Confidence threshold: 50% (adjustable)
+- Frame rate: 15 FPS for web streaming
+- Model: YOLOv8n (nano) for speed
+
+### System Requirements
+
+**Minimum:**
+- Python 3.12+
+- 4GB RAM
+- CPU with AVX support
+- Webcam/Camera access
+
+**Recommended:**
+- 8GB+ RAM
+- GPU support (CUDA/Metal)
+- Fast internet connection
+- Modern browser with WebRTC support
+
+## 📊 Metrics & Analytics
+
+### 7-Category Metrics System
+
+1. **⚡ Performance Metrics**
+   - Frame processing time
+   - Inference latency
+   - Memory usage
+
+2. **🌐 Network Metrics**
+   - Data transferred
+   - Connection quality
+   - Bandwidth usage
+
+3. **🎯 Detection Metrics**
+   - Objects detected
+   - Detection confidence
+   - Processing accuracy
+
+4. **🔒 Privacy Metrics**
+   - Data transmission logs
+   - Security events
+   - Access tracking
+
+5. **👤 User Interaction**
+   - Page views
+   - Button clicks
+   - Session duration
+
+6. **💻 System Health**
+   - CPU usage
+   - Memory consumption
+   - Error rates
+
+7. **🎛️ Custom Metrics**
+   - Application-specific data
+   - Custom events
+   - Business metrics
+
+## 🐳 Docker Deployment
+
+### Quick Deploy
+
+```bash
+# Production deployment
+docker-compose up -d
+
+# Development with logs
+docker-compose up
+
+# Stop services
+docker-compose down
+```
+
+### Manual Docker Commands
+
+```bash
+# Build image
+docker build -t yolo-object-detection .
+
+# Run container
+docker run -d \
+  --name yolo-detection \
+  -p 8443:8443 \
+  --restart unless-stopped \
+  yolo-object-detection
+
+# View logs
+docker logs -f yolo-detection
+
+# Health check
+docker inspect yolo-detection | grep Health -A 10
+```
+
+### Environment Variables
+
+```bash
+# Custom configuration
+docker run -d \
+  -e YOLO_MODEL_PATH=/app/models/custom_model.pt \
+  -e PYTHONPATH=/app \
+  -p 8443:8443 \
+  yolo-object-detection
+```
+
+## 🔒 Security Features
+
+### SSL/TLS Support
+- **🔐 Automatic HTTPS**: Self-signed certificates generated automatically
+- **📱 Mobile Compatible**: Works with mobile browsers
+- **🔄 Certificate Renewal**: Easy certificate management
+
+### Privacy Protection
+- **🏠 Local Processing**: Option for client-side inference
+- **📊 Privacy Metrics**: Track data transmission and access
+- **🛡️ Secure Streaming**: Encrypted WebRTC connections
+
+## 🛠️ Development
+
+### Local Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/Anubhob435/Yolo-Object-Detection-AdmyBrand.git
+cd Yolo-Object-Detection-AdmyBrand
+
+# Setup environment
+uv sync
+
+# Run in development mode
+uv run -m src.server.inference
+
+# Or use the run script
 python scripts/run.py inference
 ```
 
-### 3. Export Model to ONNX (for WASM inference)
-
-To use client-side inference, export the YOLO model to ONNX format:
+### Build Tools
 
 ```bash
+# Export model to ONNX
 python scripts/run.py export
+
+# Create SSL certificates
+python scripts/create_ssl_cert.py
+
+# Setup mobile access
+python scripts/mobile_setup.py
 ```
 
-This will create a `yolov8n.onnx` file in the `models/` directory.
+## 🧪 Testing
 
-## Running the Demos
+### Camera Test Page
+Access `https://localhost:8443/camera-test` to:
+- Test camera functionality
+- Check WebRTC compatibility
+- Verify media constraints
+- Debug connection issues
 
-### Option 1: Server-Side Inference
+### Debug Console
+Access `https://localhost:8443/debug` for:
+- Real-time logs
+- Connection status
+- Performance metrics
+- Error tracking
 
-1. **Start the inference server:**
-   ```bash
-   python scripts/run.py inference
-   ```
+## 🎯 Use Cases
 
-2. **Open the demo in your browser:**
-   Navigate to `http://localhost:8080`
+### 🏭 **Industrial Applications**
+- Quality control monitoring
+- Safety compliance checking
+- Equipment status detection
+- Automated inspection systems
 
-3. **Allow camera access** and click "Start Camera"
+### 🏠 **Smart Home/Security**
+- Home security monitoring
+- Pet monitoring
+- Package detection
+- Visitor identification
 
-4. The server will process the video stream and send detection results back to the browser
+### 🚗 **Automotive**
+- Driver assistance systems
+- Parking automation
+- Traffic monitoring
+- Vehicle detection
 
-### Option 2: Client-Side WASM Inference
+### 📚 **Education/Research**
+- Computer vision learning
+- AI demonstration
+- Research prototyping
+- Student projects
 
-1. **Start the basic signaling server:**
-   ```bash
-   python scripts/run.py signaling
-   ```
+## 🤝 Contributing
 
-2. **Serve the files** (you'll need a web server for WASM):
-   ```bash
-   # Using Python's built-in server
-   python -m http.server 8000
-   ```
+1. **Fork the repository**
+2. **Create feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open Pull Request**
 
-3. **Open the WASM demo:**
-   Navigate to `http://localhost:8000/src/web/templates/index_wasm.html`
+### Development Guidelines
+- Follow Python PEP 8 style guide
+- Add tests for new features
+- Update documentation
+- Use meaningful commit messages
 
-4. The inference will run entirely in your browser
+## 📝 License
 
-### Option 3: Basic WebRTC Streaming
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-1. **Start the signaling server:**
-   ```bash
-   python scripts/run.py signaling
-   ```
+## 🙏 Acknowledgments
 
-2. **Serve the files:**
-   ```bash
-   python -m http.server 8000
-   ```
+- **YOLOv8**: Ultralytics for the excellent YOLO implementation
+- **WebRTC**: Open-source WebRTC community
+- **aiortc**: Python WebRTC implementation
+- **OpenCV**: Computer vision library
+- **UV**: Modern Python package manager
 
-3. **Open the basic demo:**
-   Navigate to `http://localhost:8000/src/web/templates/basic.html`
+## 📞 Support
 
-## Architecture Comparison
+### 🐛 Issue Reporting
+- [GitHub Issues](https://github.com/Anubhob435/Yolo-Object-Detection-AdmyBrand/issues)
+- Include system information and error logs
+- Provide steps to reproduce the issue
 
-| Feature | Server-Side | Client-Side |
-|---------|-------------|-------------|
-| **Latency** | Higher (network RTT) | Ultra-low (local processing) |
-| **Privacy** | Lower (video sent to server) | Higher (video stays local) |
-| **Performance** | Consistent (server GPU) | Variable (client device) |
-| **Scalability** | Expensive (server resources) | High (distributed processing) |
-| **Model Size** | Large models supported | Limited by browser |
+### 📚 Documentation
+- [Docker Guide](DOCKER.md) - Complete Docker documentation
+- [Project Structure](docs/STRUCTURE.md) - Detailed architecture
+- [Camera Troubleshooting](docs/CAMERA_TROUBLESHOOTING.md) - Camera setup help
 
-## Usage Notes
+### 💬 Community
+- Discussion forum (coming soon)
+- Stack Overflow tag: `yolo-object-detection`
 
-### For Mobile Testing
+---
 
-- Use HTTPS or `localhost` for camera access
-- The `facingMode: 'environment'` constraint requests the rear camera
-- For front camera, use `facingMode: 'user'`
+<div align="center">
 
-### STUN/TURN Servers
+**⭐ Star this repository if you find it useful!**
 
-The demo uses Google's public STUN server. For production:
-- Use your own STUN/TURN servers
-- Consider services like Twilio, Agora, or AWS Kinesis
+Made with ❤️ by [AdmyBrand](https://github.com/Anubhob435)
 
-### Security Considerations
+[🔝 Back to Top](#-yolo-object-detection---admybrand)
 
-- **HTTPS Required**: WebRTC requires secure contexts
-- **Camera Permissions**: Users must grant camera access
-- **Privacy**: Server-side processing sends video data to your server
-
-## Customization
-
-### Adjusting Detection Confidence
-
-In `server_inference.py`, modify the confidence threshold:
-```python
-if box.conf > 0.4:  # Change this value (0.0 to 1.0)
-```
-
-### Using Different Models
-
-Replace `yolov8n.pt` with other YOLO models:
-- `yolov8s.pt` (small)
-- `yolov8m.pt` (medium)
-- `yolov8l.pt` (large)
-- `yolov8x.pt` (extra large)
-
-### Adding Custom Classes
-
-Modify the label mapping in the detection processing code to show custom class names instead of generic labels.
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Camera not working**: Ensure HTTPS or localhost
-2. **Model download fails**: Check internet connection
-3. **High CPU usage**: Try smaller YOLO model variants
-4. **WebRTC connection fails**: Check firewall/NAT settings
-
-### Performance Tips
-
-- Use smaller input resolution for better performance
-- Adjust frame rate in camera constraints
-- Consider GPU acceleration for ONNX Runtime
-
-## Technical Details
-
-This implementation follows the comprehensive guide detailed in `instructions.md`, which covers:
-
-- WebRTC foundation and signaling
-- Peer-to-peer media streaming
-- Real-time video processing
-- Object detection integration
-- Privacy and performance considerations
-
-For the complete technical documentation, refer to the `instructions.md` file.
+</div>
