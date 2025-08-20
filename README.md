@@ -300,25 +300,6 @@ Access `https://localhost:8443/debug` for:
 - Performance metrics
 - Error tracking
 
-## 🎯 Use Cases
-
-### 🏭 **Industrial Applications**
-- Quality control monitoring
-- Safety compliance checking
-- Equipment status detection
-- Automated inspection systems
-
-### 🏠 **Smart Home/Security**
-- Home security monitoring
-- Pet monitoring
-- Package detection
-- Visitor identification
-
-### 🚗 **Automotive**
-- Driver assistance systems
-- Parking automation
-- Traffic monitoring
-- Vehicle detection
 
 ### 📚 **Education/Research**
 - Computer vision learning
@@ -326,12 +307,6 @@ Access `https://localhost:8443/debug` for:
 - Research prototyping
 - Student projects
 
-## 🤝 Contributing
-
-1. **Fork the repository**
-2. **Create feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit changes**: `git commit -m 'Add amazing feature'`
-4. **Push to branch**: `git push origin feature/amazing-feature`
 5. **Open Pull Request**
 
 ### Development Guidelines
@@ -344,38 +319,17 @@ Access `https://localhost:8443/debug` for:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **YOLOv8**: Ultralytics for the excellent YOLO implementation
-- **WebRTC**: Open-source WebRTC community
-- **aiortc**: Python WebRTC implementation
-- **OpenCV**: Computer vision library
-- **UV**: Modern Python package manager
-
-## 📞 Support
-
-### 🐛 Issue Reporting
-- [GitHub Issues](https://github.com/Anubhob435/Yolo-Object-Detection-AdmyBrand/issues)
-- Include system information and error logs
-- Provide steps to reproduce the issue
 
 ### 📚 Documentation
 - [Docker Guide](DOCKER.md) - Complete Docker documentation
 - [Project Structure](docs/STRUCTURE.md) - Detailed architecture
 - [Camera Troubleshooting](docs/CAMERA_TROUBLESHOOTING.md) - Camera setup help
 
-### 💬 Community
-- Discussion forum (coming soon)
-- Stack Overflow tag: `yolo-object-detection`
 
 ---
 
-<div align="center">
-
-**⭐ Star this repository if you find it useful!**
-
-Made with ❤️ by [AdmyBrand](https://github.com/Anubhob435)
+Made with ❤️ for [AdmyBrand](https://github.com/Anubhob435)
 
 [🔝 Back to Top](#-yolo-object-detection---admybrand)
 
-</div>
+
